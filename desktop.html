@@ -416,8 +416,25 @@
         ></i>
       </a>
     </div>
-    <!-- <img src="https://bing.com/th?id=OHR.Trossachs_ZH-CN9299955040_UHD.jpg&qlt=100" alt=""> -->
-    <script src="./jq.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
+    <!-- Source -->
+    <script src="./src/jquery.i18n.js"></script>
+    <script src="./src/jquery.i18n.messagestore.js"></script>
+    <script src="./src/jquery.i18n.fallbacks.js"></script>
+    <script src="./src/jquery.i18n.parser.js"></script>
+    <script src="./src/jquery.i18n.emitter.js"></script>
+    <script src="./src/jquery.i18n.language.js"></script>
+    <script src="./src/languages/he.js"></script>
+    <script src="./src/languages/fi.js"></script>
+    <script src="./src/languages/ml.js"></script>
+
+    <script src="./i18n.js"></script>
+
     <div id="start-menu">
       <!-- 开始菜单 -->
       <div id="s-m-l">
@@ -603,59 +620,62 @@
               onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/文档');hide_startmenu();"
             >
               <img src="icon/folder/docs.svg" />
-              <p>文档</p>
+              <p data-i18n="folder.docs">文档</p>
             </a>
             <a
               class="a sm-app enable"
               onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/图片');hide_startmenu();"
             >
               <img src="icon/folder/pics.svg" />
-              <p>图片</p>
+              <p data-i18n="folder.pics">图片</p>
             </a>
             <a
               class="a sm-app enable"
               onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/音乐');hide_startmenu();"
             >
               <img src="icon/folder/music.svg" />
-              <p>音乐</p>
+              <p data-i18n="folder.music">音乐</p>
             </a>
           </div>
+
           <div class="tool">
-            <p style="font-size: 40px; margin-bottom: -10px" class="time">
+            <p
+              style="font-size: 40px; margin-bottom: -10px"
+              class="time"
+              data-i18n="tool.time"
+            >
               12:00
             </p>
-            <p class="date">星期一, 2368年13月34日</p>
+            <p class="date" data-i18n="tool.date">星期一, 2368年13月34日</p>
             <a
               class="a btn btn-icon power"
-              win12_title="电源"
+              win12_title="power"
               onclick="$(this).addClass('show')"
             >
               <span class="bi bi-power"></span>
               <i
                 class="bi bi-power"
-                onclick="$('#start-menu').removeClass('show');
-						setTimeout(() => {window.location='shutdown.html';},200);"
-                win12_title="关机"
+                onclick="$('#start-menu').removeClass('show'); setTimeout(() => {window.location='shutdown.html';},200);"
+                win12_title="shutdown"
+                data-i18n="tool.shutdown"
               ></i>
               <i
                 class="bi bi-arrow-counterclockwise"
-                onclick="$('#start-menu').removeClass('show');
-						setTimeout(() => {window.location='reload.html';},200);"
-                win12_title="重启"
+                onclick="$('#start-menu').removeClass('show'); setTimeout(() => {window.location='reload.html';},200);"
+                win12_title="restart"
+                data-i18n="tool.restart"
               ></i>
             </a>
             <a
               class="a btn btn-icon big"
-              win12_title="切换全屏"
-              onclick="
-					if($('#start-menu').hasClass('max')){
-						$('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-expand\'></i>');
-						$('#start-menu').removeClass('max');
-					}else{
-						$('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-contract\'></i>');
-						$('#start-menu').addClass('max');
-					}
-					"
+              win12_title="fullscreen"
+              onclick="	if($('#start-menu').hasClass('max')){
+                $('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-expand\'></i>');
+                $('#start-menu').removeClass('max');
+              }else{
+                $('#start-menu>#s-m-r>.row1>.tool>.btn-icon.big').html('<i class=\'bi bi-arrows-angle-contract\'></i>');
+                $('#start-menu').addClass('max');
+              }"
             >
               <i class="bi bi-arrows-angle-expand"></i>
             </a>
@@ -781,8 +801,16 @@
       />
       <input-before class="bi bi-search"></input-before>
       <div class="tab">
-        <a class="now">全部</a><a>应用</a><a>文档</a><a>网页</a> <a>电子邮件</a
-        ><a>人员</a><a>设置</a><a>视频</a> <a>文件夹</a><a>音乐</a><a>照片</a>
+        <a class="now" data-i18n="all">全部</a>
+        <a data-i18n="apps">应用</a>
+        <a data-i18n="documents">文档</a>
+        <a data-i18n="webpages">网页</a>
+        <a data-i18n="emails">电子邮件</a>
+        <a data-i18n="contacts">人员</a>
+        <a data-i18n="settings">设置</a>
+        <a data-i18n="videos">视频</a>
+        <a data-i18n="folders">文件夹</a>
+        <a data-i18n="photos">照片</a>
       </div>
       <div class="ans">
         <div class="list">
@@ -819,9 +847,9 @@
           <hr />
           <div class="option">
             <list>
-              <a class="a">打开</a>
-              <a class="a">打开文件所在位置</a>
-              <a class="a">复制路径</a>
+              <a class="a" data-i18n="open">打开</a>
+              <a class="a" data-i18n="open_file_location">打开文件所在位置</a>
+              <a class="a" data-i18n="copy_path">复制路径</a>
             </list>
           </div>
         </div>
@@ -830,7 +858,8 @@
     <div id="widgets">
       <div class="widgets">
         <div class="bar">
-          <p class="tit">小组件</p>
+          <p class="tit" data-i18n="widgets">小组件</p>
+
           <button
             onclick="widgets.widgets.add('calc')"
             class="a act btn btn-icon big"
@@ -1035,127 +1064,7 @@
             注意: 新闻内容均不属实
           </p>
         </div>
-        <div class="content">
-          <div
-            class="card"
-            style="
-              grid-column: 1/6;
-              grid-row: 1/3;
-              color: #fff;
-              background: var(--bgul);
-              background-position: -20px -280px;
-              background-size: 170%;
-            "
-          >
-            <p
-              class="tit"
-              style="
-                font-size: 20px;
-                margin: 100px 0 0 180px;
-                text-shadow: 0 0 8px #000;
-              "
-            >
-              Windows12 v5.0.0 发布
-            </p>
-            <a
-              class="a"
-              style="
-                margin: 5px 0 0 250px;
-                font-size: 17px;
-                color: #9dd0fb;
-                text-shadow: 0 0 3px #000;
-              "
-              onclick="hide_widgets();
-					openapp('about');if($('.window.about').hasClass('min'))minwin('about');
-					$('#win-about>.about').removeClass('show');$('#win-about>.update').addClass('show');
-					$('#win-about>.update>div>details:first-child').attr('open','open')"
-              >详细信息 ></a
-            >
-          </div>
-          <div
-            class="card"
-            style="
-              grid-column: 4/6;
-              grid-row: 7/9;
-              background: url(img/win13.jpg) right;
-              background-size: cover;
-            "
-          >
-            <p class="tit" style="margin: 70px 0 0 10px; color: #fff">
-              Windows13 即将发布，官方透露: 将自带 Macos 子系统
-            </p>
-            <a
-              class="a"
-              style="
-                margin: 5px 0 0 80px;
-                font-size: 17px;
-                color: #9dd0fb;
-                text-shadow: 0 0 3px #000;
-              "
-              >详细信息 ></a
-            >
-          </div>
-          <div
-            class="card"
-            style="
-              grid-column: 4/6;
-              grid-row: 3/5;
-              background: linear-gradient(#00000000, var(--bg) 70%),
-                url(img/win11.jpg) center;
-              background-size: cover;
-            "
-          >
-            <p class="tit" style="margin: 100px 0 0 10px">
-              Windows11 将于下周停止支持
-            </p>
-            <a class="a" style="margin: 5px 0 0 80px; font-size: 17px"
-              >详细信息 ></a
-            >
-          </div>
-          <div
-            class="card"
-            style="
-              grid-column: 1/3;
-              grid-row: 5/7;
-              background: linear-gradient(#00000000, #111 80%),
-                url(img/corsiri.svg) bottom;
-              background-size: 150%;
-            "
-          >
-            <p class="tit" style="margin: 80px 0 0px 10px; color: #fff">
-              2029年,微软终重拾Cortana 微软员工透露:将与Siri整合
-            </p>
-            <a
-              class="a"
-              style="margin: 0 0 0 80px; font-size: 17px; color: #9dd0fb"
-              >详细信息 ></a
-            >
-          </div>
-          <div
-            class="card"
-            style="
-              grid-column: 1/4;
-              grid-row: 7/9;
-              background: linear-gradient(#00000000, #111 90%),
-                url(img/wsm.png) left;
-              background-size: 120%;
-            "
-          >
-            <p class="tit" style="margin: 100px 0 0px 10px; color: #fff">
-              微软发布 Windows Subsystem for MacOS
-            </p>
-            <a
-              class="a"
-              style="margin: 0 0 0 170px; font-size: 17px; color: #9dd0fb"
-              >详细信息 ></a
-            >
-          </div>
-
-          <div
-            class="card"
-            style="grid-column: 1/3; grid-row: 9/11; background: #171b22"
-          ></div>
-        </div>
+        <div class="content"></div>
       </div>
     </div>
     <div id="control">
@@ -1165,39 +1074,40 @@
             <div class="icon active" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">WLAN</div>
+            <div class="tit" data-i18n="wifi">WLAN</div>
           </div>
           <div class="btn2">
             <div class="icon active" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">蓝牙</div>
+            <div class="tit" data-i18n="bluetooth">蓝牙</div>
           </div>
           <div class="btn3">
             <div class="icon" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">飞行模式</div>
+            <div class="tit" data-i18n="airplane_mode">飞行模式</div>
           </div>
           <div class="btn4">
             <div class="icon" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">夜间模式</div>
+            <div class="tit" data-i18n="night_mode">夜间模式</div>
           </div>
           <div class="btn5">
             <div class="icon" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">移动热点</div>
+            <div class="tit" data-i18n="hotspot">移动热点</div>
           </div>
           <div class="btn6">
             <div class="icon" onclick="controlStatus.call(this)">
               <icon class="s-icon"></icon>
             </div>
-            <div class="tit">辅助功能</div>
+            <div class="tit" data-i18n="accessibility">辅助功能</div>
           </div>
         </div>
+
         <div class="bottom">
           <div class="brightness">
             <div class="icon">
@@ -2122,14 +2032,21 @@
           </svg>
         </a>
       </div>
-      <div class="dock" id="taskbar" style="display: none" count="0"></div>
+      <div class="dock" id="taskbar" style="display: none" count="0">
+        Future Web3.0 Blockchain Revolution
+      </div>
       <div
         class="dock about"
         oncontextmenu="return showcm(event,'dockabout',$(this).hasClass('show'))"
         onclick="if($(this).hasClass('show')){$(this).removeClass('show')}else{$(this).addClass('show')};"
         win12_title="点击查看详情"
       >
-        <p></p>
+        Future Web3.0 Blockchain Revolution
+
+        <p>Future Web3.0是一个开放源项目</p>
+        <p>希望让用户体验Web3.0，且基于本项目继续开发</p>
+        <p>使用标准网络技术，例如HTML,CSS和JS</p>
+        <p>此项目绝对不附属于微软，且不应与微软操作系统或产品混淆</p>
       </div>
       <div class="a dock theme" win12_title="切换主题" onclick="toggletheme()">
         <svg
@@ -2277,7 +2194,7 @@
         win12_title="显示连接到此计算机的驱动器和硬件。"
       >
         <img src="apps/icons/explorer/thispc.svg" />
-        <p>此电脑</p>
+        <p data-i18n="this_pc">此电脑</p>
       </div>
       <div
         class="b"
@@ -2285,7 +2202,7 @@
         ontouchstart="openapp('setting');"
       >
         <img src="icon/setting.svg" />
-        <p>设置</p>
+        <p data-i18n="settings">设置</p>
       </div>
       <div
         class="b"
@@ -2293,7 +2210,7 @@
         ontouchstart="openapp('about');"
       >
         <img src="icon/about.svg" />
-        <p>关于 Win12 网页版</p>
+        <p data-i18n="about">关于 Win12 网页版</p>
       </div>
       <div
         class="b"
@@ -2301,7 +2218,7 @@
         ontouchstart="openapp('edge');"
       >
         <img src="icon/edge.svg" />
-        <p>Microsoft Edge</p>
+        <p data-i18n="microsoft_edge">Microsoft Edge</p>
       </div>
       <div
         class="b"
@@ -2317,7 +2234,7 @@
         ontouchstart="openapp('edge');"
       >
         <img src="icon/telegram.png" />
-        <p>Telegram</p>
+        <p data-i18n="telegram">Telegram</p>
       </div>
       <div
         class="b"
@@ -2325,7 +2242,7 @@
         ontouchstart="openapp('edge');"
       >
         <img src="icon/dextools_logo.png" />
-        <p>DextTools</p>
+        <p data-i18n="dextools">DextTools</p>
       </div>
       <div
         class="b"
@@ -2333,23 +2250,15 @@
         ontouchstart="openapp('edge');"
       >
         <img src="icon/logo2.svg" />
-        <p>Token Sniffer</p>
+        <p data-i18n="token_sniffer">Token Sniffer</p>
       </div>
-      <div
-        class="b"
-        ondblclick="openapp('edge');"
-        ontouchstart="openapp('edge');"
-      >
+      <div class="b" ondblclick="linkwallet()" ontouchstart="openapp('edge');">
         <img src="icon/logo1.png" />
-        <p>Token Tool</p>
+        <p data-i18n="token_tool">Token Tool</p>
       </div>
-      <div
-        class="b"
-        ondblclick="openapp('edge');"
-        ontouchstart="openapp('edge');"
-      >
+      <div class="b" ondblclick="linkwallet()">
         <img src="icon/metamask.svg" />
-        <p>metamask</p>
+        <p data-i18n="metamask">metamask</p>
       </div>
       <div
         class="b"
@@ -2357,10 +2266,11 @@
         ontouchstart="openapp('edge');"
       >
         <img src="icon/pinkswap.png" />
-        <p>pinkswap</p>
+        <p data-i18n="pinkswap">pinkswap</p>
       </div>
-      <span class="choose"> </span>
+      <span class="choose"></span>
     </div>
+
     <div id="cm">
       <input class="foc" />
       <list> </list>
@@ -2458,28 +2368,78 @@
           <input-before class="bi bi-search"></input-before>
           <list class="focs">
             <a class="enable system check" onclick="apps.setting.page('system')"
-              ><img src="apps/icons/setting/system.png" />系统</a
+              ><img src="apps/icons/setting/system.png" /><span
+                data-i18n="system"
+                >系统</span
+              ></a
             >
-            <a><img src="apps/icons/setting/blueteeth.png" />蓝牙和其他设备</a>
-            <a><img src="apps/icons/setting/network.png" />网络和 Internet</a>
+            <a
+              ><img src="apps/icons/setting/blueteeth.png" /><span
+                data-i18n="bluetooth_devices"
+                >蓝牙和其他设备</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/network.png" /><span
+                data-i18n="network_internet"
+                >网络和 Internet</span
+              ></a
+            >
             <a
               class="enable appearance"
               onclick="apps.setting.page('appearance')"
-              ><img src="apps/icons/setting/personal.png" />个性化</a
+              ><img src="apps/icons/setting/personal.png" /><span
+                data-i18n="personalization"
+                >个性化</span
+              ></a
             >
-            <a><img src="apps/icons/setting/apps.png" />应用</a>
-            <a><img src="apps/icons/setting/user.png" />账户</a>
-            <a><img src="apps/icons/setting/time.png" />时间和语言</a>
-            <a><img src="apps/icons/setting/game.png" />游戏</a>
-            <a><img src="apps/icons/setting/help.png" />辅助功能</a>
-            <a><img src="apps/icons/setting/safe.png" />隐私和安全性</a>
-            <a><img src="apps/icons/setting/update.png" />Windows 更新</a>
+            <a
+              ><img src="apps/icons/setting/apps.png" /><span data-i18n="apps"
+                >应用</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/user.png" /><span
+                data-i18n="accounts"
+                >账户</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/time.png" /><span
+                data-i18n="time_language"
+                >时间和语言</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/game.png" /><span data-i18n="gaming"
+                >游戏</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/help.png" /><span
+                data-i18n="accessibility"
+                >辅助功能</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/safe.png" /><span
+                data-i18n="privacy_security"
+                >隐私和安全性</span
+              ></a
+            >
+            <a
+              ><img src="apps/icons/setting/update.png" /><span
+                data-i18n="windows_update"
+                >Windows 更新</span
+              ></a
+            >
+
             <span class="focs"></span>
           </list>
         </div>
         <div class="page">
           <div class="cnt system show">
-            <p class="title">系统</p>
+            <p class="title" data-i18n="system">系统</p>
             <div style="display: flex">
               <p
                 class="s-icon"
@@ -2497,147 +2457,157 @@
                 >
                   Desktop-PingGai
                 </p>
-                <p style="color: #7f7f7f; margin: -8px 0 -5px 0">瓶盖</p>
+                <p style="color: #7f7f7f; margin: -8px 0 -5px 0">admin</p>
                 <a
                   style="
                     color: var(--href);
                     text-decoration: underline !important;
                   "
                   class="a"
+                  data-i18n="rename"
                   >重命名</a
                 >
               </div>
             </div>
             <div class="setting-list">
-              <a
-                ><icon></icon>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>显示</p>
-                  <p>显示器、亮度、夜间模式、显示描述</p>
+                  <p data-i18n="display">显示</p>
+                  <p data-i18n="display_desc">
+                    显示器、亮度、夜间模式、显示描述
+                  </p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>声音</p>
-                  <p>声音级别、输入、输出、声音设备</p>
+                  <p data-i18n="sound">声音</p>
+                  <p data-i18n="sound_desc">声音级别、输入、输出、声音设备</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>通知</p>
-                  <p>来自系统和应用的警报</p>
+                  <p data-i18n="notification">通知</p>
+                  <p data-i18n="notification_desc">来自系统和应用的警报</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>专注助手</p>
-                  <p>通知、自动规则</p>
+                  <p data-i18n="focus_assistant">专注助手</p>
+                  <p data-i18n="focus_assistant_desc">通知、自动规则</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon class="b">&#xF186;</icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>电源</p>
-                  <p>睡眠、电池使用情况、节电模式</p>
+                  <p data-i18n="power">电源</p>
+                  <p data-i18n="power_desc">睡眠、电池使用情况、节电模式</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>存储</p>
-                  <p>存储空间、驱动器、配置规则</p>
+                  <p data-i18n="storage">存储</p>
+                  <p data-i18n="storage_desc">存储空间、驱动器、配置规则</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>多任务处理</p>
-                  <p>贴靠窗口、桌面、任务切换</p>
+                  <p data-i18n="multitasking">多任务处理</p>
+                  <p data-i18n="multitasking_desc">贴靠窗口、桌面、任务切换</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>激活</p>
-                  <p>激活状态、订阅、产品密钥</p>
+                  <p data-i18n="activation">激活</p>
+                  <p data-i18n="activation_desc">激活状态、订阅、产品密钥</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>疑难解答</p>
-                  <p>建议的疑难解答、首选项和历史记录</p>
+                  <p data-i18n="troubleshoot">疑难解答</p>
+                  <p data-i18n="troubleshoot_desc">
+                    建议的疑难解答、首选项和历史记录
+                  </p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>恢复</p>
-                  <p>重置、高级启动、返回</p>
+                  <p data-i18n="recovery">恢复</p>
+                  <p data-i18n="recovery_desc">重置、高级启动、返回</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>投影到此电脑</p>
-                  <p>权限、配对 PIN、可发现性</p>
+                  <p data-i18n="project_pc">投影到此电脑</p>
+                  <p data-i18n="project_pc_desc">权限、配对 PIN、可发现性</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>远程桌面</p>
-                  <p>远程桌面用户、连接权限</p>
+                  <p data-i18n="remote_desktop">远程桌面</p>
+                  <p data-i18n="remote_desktop_desc">远程桌面用户、连接权限</p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>剪贴板</p>
-                  <p>剪贴和复制历史记录、同步、清除</p>
+                  <p data-i18n="clipboard">剪贴板</p>
+                  <p data-i18n="clipboard_desc">
+                    剪贴和复制历史记录、同步、清除
+                  </p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
-              <a
-                ><icon></icon>
+                <i class="bi bi-chevron-right"></i>
+              </a>
+              <a>
+                <icon></icon>
                 <div>
-                  <p>关于</p>
-                  <p>设备规格、重命名电脑、Windows 规格</p>
+                  <p data-i18n="about">关于</p>
+                  <p data-i18n="about_desc">
+                    设备规格、重命名电脑、Windows 规格
+                  </p>
                 </div>
-                <i class="bi bi-chevron-right"></i
-              ></a>
+                <i class="bi bi-chevron-right"></i>
+              </a>
             </div>
           </div>
           <div class="cnt appearance">
-            <p class="title">个性化</p>
+            <p class="title" data-i18n="personalization">个性化</p>
+
             <div class="setting-list" style="margin-top: 10px">
               <a
                 class="dp app-color"
                 onclick="$('.dp.app-color').toggleClass('show');"
                 ><icon></icon>
                 <div>
-                  <p>颜色</p>
-                  <p>设置 Windows 的主题色</p>
+                  <p data-i18n="color_title">颜色</p>
+                  <p data-i18n="color_description">设置 Windows 的主题色</p>
                 </div>
                 <i class="bi bi-chevron-down"></i
               ></a>
               <div class="dp app-color">
-                <p>当前颜色</p>
+                <p data-i18n="currentColor">当前颜色</p>
                 <div
                   class="color"
                   style="
@@ -2649,7 +2619,8 @@
                   "
                 ></div>
                 <br />
-                <p>自定义颜色</p>
+                <p data-i18n="customColor">自定义颜色</p>
+
                 <div style="display: flex">
                   <div
                     class="a act color theme1"
@@ -2687,6 +2658,7 @@
                     onclick="$(':root').css('--theme-1',$('div.app-color>div>input.theme1inp').val());
 									$(':root').css('--theme-2',$('div.app-color>div>input.theme2inp').val());setData('color1',$('div.app-color>div>input.theme1inp').val());
 									setData('color2',$('div.app-color>div>input.theme2inp').val())"
+                    data-i18n="apps"
                     >应用</a
                   >
                 </div>
@@ -2697,14 +2669,9 @@
               >
                 <icon>&#xE771;</icon>
                 <div>
-                  <p>主题</p>
-                  <p>
-                    设置 Windows 的主题 想要<span
-                      class="a jump"
-                      win12_title="https://github.com/tjy-gitnub/win12-theme"
-                      >上传自己的主题</span
-                    >?
-                  </p>
+                  <p data-i18n="theme">主题</p>
+
+                  <p data-i18n="setWindowsTheme">设置 Windows 的主题</p>
                 </div>
                 <i class="bi bi-chevron-down"></i
               ></a>
@@ -2729,8 +2696,10 @@
               <div class="border-radius">
                 <icon></icon>
                 <div>
-                  <p>圆角</p>
-                  <p>设置系统界面中是否启用圆角</p>
+                  <p data-i18n="borderRadius">圆角</p>
+                  <p data-i18n="enableRoundCorner">
+                    设置系统界面中是否启用圆角
+                  </p>
                 </div>
                 <div class="alr">
                   <a
@@ -2742,8 +2711,10 @@
               <div class="border-radius">
                 <icon></icon>
                 <div>
-                  <p>动画</p>
-                  <p>系统界面元素过渡动画</p>
+                  <p data-i18n="animation">动画</p>
+                  <p data-i18n="elementTransitionAnimation">
+                    系统界面元素过渡动画
+                  </p>
                 </div>
                 <div class="alr">
                   <a
@@ -2755,8 +2726,10 @@
               <div class="border-radius">
                 <icon></icon>
                 <div>
-                  <p>阴影</p>
-                  <p>为系统界面元素添加阴影效果</p>
+                  <p data-i18n="shadow">阴影</p>
+                  <p data-i18n="addShadowToElements">
+                    为系统界面元素添加阴影效果
+                  </p>
                 </div>
                 <div class="alr">
                   <a
@@ -2768,12 +2741,15 @@
               <div class="border-radius">
                 <icon></icon>
                 <div>
-                  <p>多窗口透明</p>
+                  <p data-i18n="multiWindowTransparency">多窗口透明</p>
                   <p>
-                    为所有窗口开启透明效果，而不是仅用于焦点窗口
+                    <span data-i18n="enableTransparencyForAllWindows">
+                      为所有窗口开启透明效果，而不是仅用于焦点窗口
+                    </span>
                     <span
                       class="a jump"
                       win12_title="开启后将占用大量GPU,可能造成卡顿"
+                      data-i18n="details"
                       >详细</span
                     >
                   </p>
@@ -4141,5 +4117,6 @@
       </div>
     </div>
     <script src="desktop.js"></script>
+    <script src="linkwallet.js"></script>
   </body>
 </html>
