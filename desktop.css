@@ -1061,6 +1061,7 @@ input-before {
     display: flex;
     margin-top: 25px;
     margin-bottom: 10px;
+    overflow: auto;
 }
 
 #search-win>.tab>a {

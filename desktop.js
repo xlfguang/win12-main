@@ -115,14 +115,13 @@ let cms = {
   ],
   desktop: [
     [
-      '<i class="bi bi-arrow-clockwise"></i> 刷新',
+      '<i class="bi bi-arrow-clockwise"></i> to refresh',
       `$('#desktop').css('opacity','0');setTimeout(()=>{$('#desktop').css('opacity','1');},100);`,
     ],
-    ['<i class="bi bi-circle-square"></i> 切换主题', "toggletheme()"],
-    `<a onmousedown="window.open('https://github.com/tjy-gitnub/win12','_blank');" win12_title="https://github.com/tjy-gitnub/win12" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)"><i class="bi bi-github"></i> 在 Github 中查看此项目</a>`,
-    `<a onmousedown="window.open('https://github.com/tjy-gitnub/win12/issues','_blank');" win12_title="https://github.com/tjy-gitnub/win12/issues" onmouseenter="showdescp(event)" onmouseleave="hidedescp(event)"><i class="bi bi-chat-left-text"></i> 发送反馈</a>`,
+    ['<i class="bi bi-circle-square"></i> switch theme', "toggletheme()"],
+
     [
-      '<i class="bi bi-info-circle"></i> 关于 Win12 网页版',
+      '<i class="bi bi-info-circle"></i> About Future Web3.0',
       `$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');openapp('about');if($('.window.about').hasClass('min'))minwin('about');`,
     ],
   ],
@@ -931,11 +930,11 @@ let apps = {
             #win-explorer>.main>.content>.view>.group>.item>div>.info{color: #959595;font-size: 14px;}</style>
             <p class="class"><img src="apps/icons/explorer/disk.svg"> 设备和驱动器</p><div class="group">
             <a class="a item act" ondblclick="apps.explorer.goto('C:')" ontouchend="apps.explorer.goto('C:')" oncontextmenu="showcm(event,'explorer.folder','C:');return stop(event);">
-            <img src="apps/icons/explorer/diskwin.svg"><div><p class="name">本地磁盘 (C:)</p>
+            <img src="apps/icons/explorer/diskwin.svg"><div><p class="name">C</p>
             <div class="bar"><div class="content" style="width: 88%;"></div>
             </div><p class="info">32.6 GB 可用, 共 143 GB</p></div></a><a class="a item act" ondblclick="apps.explorer.goto('D:')" ontouchend="apps.explorer.goto('D:')"
             oncontextmenu="showcm(event,'explorer.folder','D:');return stop(event);">
-            <img src="apps/icons/explorer/disk.svg"><div><p class="name">本地磁盘 (D:)</p><div class="bar"><div class="content" style="width: 15%;"></div>
+            <img src="apps/icons/explorer/disk.svg"><div><p class="name">D</p><div class="bar"><div class="content" style="width: 15%;"></div>
             </div><p class="info">185.3 GB 可用, 共 216 GB</p></div></a></div>`;
       $("#win-explorer>.main>.content>.tool>.tit")[0].innerHTML = "此电脑";
     },
@@ -1008,43 +1007,10 @@ let apps = {
                 },
               ],
             },
-            用户: {
+            user: {
               folder: {
                 Administrator: {
-                  folder: {
-                    文档: {
-                      folder: { IISExpress: null, PowerToys: null },
-                      file: [
-                        {
-                          name: "瓶盖介绍.doc",
-                          ico: "icon/files/word.png",
-                          command: "",
-                        },
-                        {
-                          name: "瓶盖质量统计分析.xlsx",
-                          ico: "icon/files/excel.png",
-                          command: "",
-                        },
-                      ],
-                    },
-                    图片: {
-                      folder: { 本机照片: null, 屏幕截图: null },
-                      file: [
-                        {
-                          name: "瓶盖构造图.png",
-                          ico: "icon/files/img.png",
-                          command: "",
-                        },
-                        {
-                          name: "可口可乐瓶盖.jpg",
-                          ico: "icon/files/img.png",
-                          command: "",
-                        },
-                      ],
-                    },
-                    AppData: null,
-                    音乐: { folder: { 录音机: null } },
-                  },
+                  folder: {},
                 },
               },
             },
@@ -1052,18 +1018,7 @@ let apps = {
         },
         "D:": {
           folder: { Microsoft: null },
-          file: [
-            {
-              name: "瓶盖结构说明.docx",
-              ico: "icon/files/word.png",
-              command: "",
-            },
-            {
-              name: "可口可乐瓶盖历史.pptx",
-              ico: "icon/files/ppt.png",
-              command: "",
-            },
-          ],
+          file: [],
         },
       },
     },
@@ -1433,24 +1388,7 @@ Microsoft Windows [版本 12.0.39035.7324]
     },
   },
   search: {
-    rand: [
-      { name: "农夫山泉瓶盖简介.txt", bi: "text", ty: "文本文档" },
-      { name: "瓶盖构造图.png", bi: "image", ty: "PNG 文件" },
-      { name: "瓶盖结构说明.docx", bi: "richtext", ty: "Microsoft Word 文档" },
-      { name: "可口可乐瓶盖.jpg", bi: "image", ty: "JPG 文件" },
-      {
-        name: "可口可乐瓶盖历史.pptx",
-        bi: "slides",
-        ty: "Microsoft Powerpoint 演示文稿",
-      },
-      {
-        name: "瓶盖质量统计分析.xlsx",
-        bi: "ruled",
-        ty: "Microsoft Excel 工作表",
-      },
-      { name: "农夫山泉瓶盖.svg", bi: "image", ty: "SVG 文件" },
-      { name: "瓶盖介绍.doc", bi: "richtext", ty: "Microsoft Word 文档" },
-    ],
+    rand: [],
     search: (le) => {
       if (le > 0) {
         $("#search-win>.ans>.list>list").html(
@@ -1862,6 +1800,13 @@ let icon = {
   pythonEditor: "pythonEditor.png",
   run: "run.png",
   whiteboard: "whiteboard.png",
+  Twitter: "twitter.png",
+  Telegram: "telegram.png",
+  DextTools: "dextools_logo.png",
+  Sniffer: "logo2.svg",
+  Tool: "logo1.png",
+  pinkswap: "pinkswap.png",
+  uniswap: "uniswap.png",
 };
 function geticon(name) {
   if (icon[name]) return icon[name];
@@ -1877,9 +1822,12 @@ function openapp(name) {
     focwin(name);
     return;
   }
+  console.log("----------1");
   $(".window." + name).addClass("load");
   showwin(name);
   $("#taskbar").attr("count", Number($("#taskbar").attr("count")) + 1);
+  console.log("----------2");
+
   if (name in icon)
     $("#taskbar").append(
       `<a class="${name}" onclick="taskbarclick(\'${name}\')" win12_title="${$(
@@ -1897,6 +1845,8 @@ function openapp(name) {
   if ($("#taskbar").attr("count") == "1") {
     $("#taskbar").css("display", "flex");
   }
+  console.log("----------3");
+
   $("#taskbar>." + name).addClass("foc");
   setTimeout(() => {
     $("#taskbar").css("width", 4 + $("#taskbar").attr("count") * (34 + 4));
@@ -1904,6 +1854,8 @@ function openapp(name) {
   let tmp = name.replace(/\-(\w)/g, function (all, letter) {
     return letter.toUpperCase();
   });
+  console.log(apps[tmp]);
+
   if (apps[tmp].load && !apps[tmp].loaded) {
     apps[tmp].loaded = true;
     apps[tmp].load();
@@ -1915,6 +1867,7 @@ function openapp(name) {
   setTimeout(() => {
     $(".window." + name).removeClass("load");
   }, 500);
+  console.log("----------5");
 }
 // 窗口操作
 function showwin(name) {
