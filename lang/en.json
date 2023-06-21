@@ -186,5 +186,6 @@
     "Contributors": "Contributors",
     "introduction-3": "We would like to express our gratitude to all the contributors of this project. In the future, we will open a contributors' community and distribute contribution points.",
     "Other": "Other",
-    "introduction-4": "This project is absolutely independent from Microsoft and should not be confused with any Microsoft operating system or product."
+    "introduction-4": "This project is absolutely independent from Microsoft and should not be confused with any Microsoft operating system or product.",
+    "welcome-usage": "Welcome to use the \"Camera\" app! This application was developed by User782Tec and maintained by tjy-gitnub. During use, this application will get access to your camera (for taking photos and other operations). This app will not upload any of your personal information (including photos taken) to the server, nor will it be disclosed to others. If you do not agree with the above agreement, you will not be able to use this application."
 }
