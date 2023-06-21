@@ -408,12 +408,12 @@
         <i
           class="bi bi-power"
           onclick="setTimeout(() => {window.location='shutdown.html';},200);"
-          win12_title="关机"
+          win12_title="shutdown"
         ></i>
         <i
           class="bi bi-arrow-counterclockwise"
           onclick="setTimeout(() => {window.location='reload.html';},200);"
-          win12_title="重启"
+          win12_title="reboot"
         ></i>
       </a>
     </div>
@@ -506,7 +506,7 @@
         <input
           type="text"
           class="input"
-          win12_title="搜索"
+          win12_title="search"
           data-i18n-placeholder="inputplaceholder"
           onfocus="hide_startmenu();
 				$('#search-btn').addClass('show');
@@ -874,7 +874,7 @@
               );
               color: #fff;
             "
-            win12_title="添加"
+            win12_title="Add to"
           >
             <i class="bi bi-plus-lg"></i>
           </button>
@@ -885,7 +885,7 @@
               <div class="wg calc">
                 <div class="titbar">
                   <a
-                    win12_title="更多"
+                    win12_title="More"
                     onmouseenter="showdescp(event)"
                     onmouseleave="hidedescp(event)"
                     class="a more notip"
@@ -894,7 +894,7 @@
                   ></a>
                   <div class="menu">
                     <a
-                      win12_title="打开应用"
+                      win12_title="open the app"
                       class="a img notip"
                       onclick="$('.wg.calc>.titbar>.menu').removeClass('show');hide_widgets();openapp('calc')"
                       onmouseenter="showdescp(event)"
@@ -904,21 +904,21 @@
                     </a>
                     <a
                       class="a notip"
-                      win12_title="移动 (不可用)"
+                      win12_title="mobile (not available)"
                       onmouseenter="showdescp(event)"
                       onmouseleave="hidedescp(event)"
                       ><i class="bi bi-arrows-move"></i
                     ></a>
                     <a
                       class="a notip"
-                      win12_title="添加到桌面 (不可用)"
+                      win12_title="Add to desktop (unavailable)"
                       onmouseenter="showdescp(event)"
                       onmouseleave="hidedescp(event)"
                       ><i class="bi bi-menu-app"></i
                     ></a>
                     <a
                       class="a notip"
-                      win12_title="删除"
+                      win12_title="remove"
                       onmouseenter="showdescp(event)"
                       onmouseleave="hidedescp(event)"
                       onclick="$('.wg.calc>.titbar>.menu').removeClass('show');widgets.widgets.remove('calc')"
@@ -1183,13 +1183,13 @@
       </div>
       <div class="cont">
         <div class="head">
-          <p>一</p>
-          <p>二</p>
-          <p>三</p>
-          <p>四</p>
-          <p>五</p>
-          <p>六</p>
-          <p>日</p>
+          <p data-i18n="su">一</p>
+          <p data-i18n="mo">二</p>
+          <p data-i18n="tu">三</p>
+          <p data-i18n="we">四</p>
+          <p data-i18n="th">五</p>
+          <p data-i18n="fr">六</p>
+          <p data-i18n="sa">日</p>
         </div>
         <div class="body"></div>
       </div>
@@ -1200,7 +1200,7 @@
         <a
           class="dock-btn"
           id="start-btn"
-          win12_title="开始"
+          win12_title="start"
           onclick="
 				if($('#start-menu').hasClass('show')){
 					hide_startmenu();
@@ -1300,7 +1300,7 @@
         <a
           class="dock-btn"
           id="search-btn"
-          win12_title="搜索"
+          win12_title="search"
           onclick="
 			if ($('#search-win').hasClass('show')) {
 				$('#search-btn').removeClass('show');
@@ -1420,7 +1420,7 @@
         <a
           class="dock-btn"
           id="widgets-btn"
-          win12_title="小组件"
+          win12_title="widget"
           onclick="
 			if($('#widgets').hasClass('show')){
 				hide_widgets();
@@ -2043,16 +2043,20 @@
         class="dock about"
         oncontextmenu="return showcm(event,'dockabout',$(this).hasClass('show'))"
         onclick="if($(this).hasClass('show')){$(this).removeClass('show')}else{$(this).addClass('show')};"
-        win12_title="点击查看详情"
+        win12_title="Click for details"
       >
         Future Web3.0 Blockchain Revolution
 
-        <p>Future Web3.0是一个开放源项目</p>
-        <p>希望让用户体验Web3.0，且基于本项目继续开发</p>
-        <p>使用标准网络技术，例如HTML,CSS和JS</p>
-        <p>此项目绝对不附属于微软，且不应与微软操作系统或产品混淆</p>
+        <p data-i18n="future-web3-open-source"></p>
+        <p data-i18n="user-experience-web3"></p>
+        <p data-i18n="using-standard-web-tech"></p>
+        <p data-i18n="not-affiliated-ms"></p>
       </div>
-      <div class="a dock theme" win12_title="切换主题" onclick="toggletheme()">
+      <div
+        class="a dock theme"
+        win12_title="switch theme"
+        onclick="toggletheme()"
+      >
         <svg
           viewBox="0,0,307,307"
           class="light"
@@ -2195,7 +2199,7 @@
       <div
         ondblclick="openapp('explorer');"
         ontouchstart="openapp('explorer');"
-        win12_title="显示连接到此计算机的驱动器和硬件。"
+        win12_title="Displays the drives and hardware connected to this computer."
       >
         <img src="apps/icons/explorer/thispc.svg" />
         <p data-i18n="this_pc">此电脑</p>
@@ -2226,40 +2230,40 @@
       </div>
       <div
         class="b"
-        ondblclick="openapp('Twitter');"
-        ontouchstart="openapp('Twitter');"
+        ondblclick="opneLink('Twitter',true);"
+        ontouchstart="opneLink('Twitter',true);"
       >
         <img src="icon/twitter.png" />
         <p>Twitter</p>
       </div>
       <div
         class="b"
-        ondblclick="openapp('Telegram');"
-        ontouchstart="openapp('Telegram');"
+        ondblclick="opneLink('Telegram',true);"
+        ontouchstart="opneLink('Telegram',true);"
       >
         <img src="icon/telegram.png" />
         <p data-i18n="telegram">Telegram</p>
       </div>
       <div
         class="b"
-        ondblclick="openapp('DextTools');"
-        ontouchstart="openapp('DextTools');"
+        ondblclick="opneLink('DextTools',true);"
+        ontouchstart="opneLink('DextTools',true);"
       >
         <img src="icon/dextools_logo.png" />
         <p data-i18n="dextools">DextTools</p>
       </div>
       <div
         class="b"
-        ondblclick="openapp('Sniffer');"
-        ontouchstart="openapp('Sniffer');"
+        ondblclick="opneLink('Sniffer',true);"
+        ontouchstart="opneLink('Sniffer',true);"
       >
         <img src="icon/logo2.svg" />
         <p data-i18n="token_sniffer">Token Sniffer</p>
       </div>
       <div
         class="b"
-        ondblclick="openapp('Tool');"
-        ontouchstart="openapp('Tool');"
+        ondblclick="opneLink('Tool');"
+        ontouchstart="opneLink('Tool');"
       >
         <img src="icon/logo1.png" />
         <p data-i18n="token_tool">Token Tool</p>
@@ -2270,16 +2274,16 @@
       </div>
       <div
         class="b"
-        ondblclick="openapp('pinkswap');"
-        ontouchstart="openapp('pinkswap');"
+        ondblclick="opneLink('pinkswap');"
+        ontouchstart="opneLink('pinkswap');"
       >
         <img src="icon/pinkswap.png" />
         <p data-i18n="pinkswap">pinkswap</p>
       </div>
       <div
         class="b"
-        ondblclick="openapp('uniswap');"
-        ontouchstart="openapp('uniswap');"
+        ondblclick="opneLink('uniswap');"
+        ontouchstart="opneLink('uniswap');"
       >
         <img src="icon/uniswap.png" />
         <p data-i18n="uniswap">uniswap</p>
@@ -2378,7 +2382,7 @@
           <input
             type="text"
             class="input"
-            placeholder="查找设置"
+            data-i18n-placeholder="find_settings"
             style="padding-left: 30px"
           />
           <input-before class="bi bi-search"></input-before>
@@ -2420,7 +2424,7 @@
                 >账户</span
               ></a
             >
-            <a
+            <a class="enable language" onclick="apps.setting.page('language')"
               ><img src="apps/icons/setting/time.png" /><span
                 data-i18n="time_language"
                 >时间和语言</span
@@ -2765,7 +2769,7 @@
                     </span>
                     <span
                       class="a jump"
-                      win12_title="开启后将占用大量GPU,可能造成卡顿"
+                      win12_title="After it is turned on, it will take up a lot of GPU, which may cause lag"
                       data-i18n="details"
                       >详细</span
                     >
@@ -2776,6 +2780,39 @@
                     class="a checkbox"
                     onclick="$(this).toggleClass('checked');$(':root').toggleClass('moreblur')"
                   ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cnt language">
+            <p class="title" data-i18n="time_language">时间与语言</p>
+
+            <div class="setting-list" style="margin-top: 10px">
+              <a
+                class="dp app-color"
+                onclick="$('.dp.app-color').toggleClass('show');"
+              >
+                <icon></icon>
+                <div>
+                  <p data-i18n="language">语言</p>
+                  <p data-i18n="language_decription">设置 Windows 的语言</p>
+                </div>
+                <i class="bi bi-chevron-down"></i>
+              </a>
+              <div class="dp app-color">
+                <div class="flex">
+                  <a class="a button mr-10" onclick="setLanguage('en')">
+                    English
+                  </a>
+                  <a class="a button mr-10" onclick="setLanguage('zh')">
+                    简体中文
+                  </a>
+                  <a class="a button mr-10" onclick="setLanguage('jp')">
+                    日本語
+                  </a>
+                  <a class="a button mr-10" onclick="setLanguage('sk')">
+                    한국인
+                  </a>
                 </div>
               </div>
             </div>
@@ -3041,10 +3078,28 @@
           <h1 class="tit" data-i18n="about"><span></span>Windows 12 网页版</h1>
           <div style="margin-left: 20px">
             <h2 class="tit" data-i18n="introduction"><span></span>简介</h2>
+            <p data-i18n="introduction-1">
+              Windows 12 网页版是一个开源项目, 由谭景元原创, 使用 Html,css,js ,
+              在网络上模拟、创新操作系统
+            </p>
+            <h2 class="tit" data-i18n="Open-Source-Statement"></h2>
+            <p data-i18n="introduction-2"></p>
+            <h2 class="tit" data-i18n="Contributors"></h2>
+            <p data-i18n="introduction-3"></p>
+            <h2 class="tit" data-i18n="Other"></h2>
+            <p data-i18n="introduction-4"></p>
           </div>
-          <div class="cnt update">
-            <h1 class="tit"><span></span>更新记录</h1>
-            <div style="margin-left: 20px"></div>
+        </div>
+        <div class="cnt update">
+          <h1 class="tit" data-i18n="update_record"><span></span>更新记录</h1>
+          <div style="margin-left: 20px">
+            <details>
+              <summary>
+                <span data-i18n="version"></span>
+                <span data-i18n="language-system"></span>
+              </summary>
+              <p data-i18n="added-language-system"><br /></p>
+            </details>
           </div>
         </div>
       </div>
@@ -3288,7 +3343,7 @@
           <a
             class="a wbtg"
             onclick="apps.edge.newtab();apps.edge.goto('https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__SDw7SZUMlJQMUYzMDVOMlQ2MFdQOUpQQlQ2S1hTSi4u');apps.edge.rename('反馈')"
-            win12_title="反馈"
+            win12_title="the feedback"
             ><i class="bi bi-chat-dots"></i
           ></a>
         </div>
@@ -3316,7 +3371,7 @@
           <input
             type="text"
             onkeyup="if(event.keyCode==13&&$(this).val()!=''){apps.edge.goto($(this).val())}"
-            placeholder="在必应中搜索，或输入一个网址"
+            data-i18n-placeholder="Bing"
             class="url"
             spellcheck="false"
           />
@@ -3330,7 +3385,7 @@
           <a class="a">
             <i
               class="bi bi-info-circle"
-              win12_title="浏览器只能访问允许嵌套的网站。由于规则限制无法获取网页标题，请右键标签页手动命名"
+              win12_title="Browsers can only access sites that allow nesting. Due to rule restrictions, the title of the web page cannot be obtained, please right-click the tab page and name it manually"
             ></i>
           </a>
           <a class="a" style="filter: contrast(0.2)">

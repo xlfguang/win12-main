@@ -19,23 +19,15 @@ const pages = {
 const backgroundList = [
   {
     name: "1",
-    path: "/img/BG1.jpg",
-  },
-  {
-    name: "1",
-    path: "/img/BG2.jpg",
-  },
-  {
-    name: "1",
-    path: "/img/BG3.png",
-  },
-  {
-    name: "1",
     path: "/img/BG4.jpg",
   },
   {
     name: "1",
     path: "/img/BG5.jpg",
+  },
+  {
+    name: "1",
+    path: "/img/future.jpg",
   },
 ];
 document.querySelectorAll(`list.focs`).forEach((li) => {
@@ -134,7 +126,7 @@ let cms = {
         ];
       } else {
         return [
-          '<i class="bi bi-box-arrow-in-up"></i> 打开开始菜单',
+          '<i class="bi bi-box-arrow-in-up"></i> open start menu',
           `$('#start-btn').addClass('show');
                 if($('#search-win').hasClass('show')){$('#search-btn').removeClass('show');
                 $('#search-win').removeClass('show');setTimeout(() => {$('#search-win').removeClass('show-begin');
@@ -144,22 +136,19 @@ let cms = {
       }
     },
     "<hr>",
-    ['<i class="bi bi-gear"></i> 设置', `openapp('setting')`],
-    ['<i class="bi bi-terminal"></i> 运行', `openapp('run')`],
+    ['<i class="bi bi-gear"></i> setting', `openapp('setting')`],
+    ['<i class="bi bi-terminal"></i> run', `openapp('run')`],
+    ['<i class="bi bi-folder2-open"></i> file explorer', `openapp('explorer')`],
     [
-      '<i class="bi bi-folder2-open"></i> 文件资源管理器',
-      `openapp('explorer')`,
-    ],
-    [
-      '<i class="bi bi-search"></i> 搜索',
+      '<i class="bi bi-search"></i>  search',
       `$('#search-btn').addClass('show');hide_startmenu();
         $('#search-win').addClass('show-begin');setTimeout(() => {$('#search-win').addClass('show');
         $('#search-input').focus();}, 0);`,
     ],
     "<hr>",
-    ['<i class="bi bi-power"></i> 关机', `window.location='shutdown.html'`],
+    ['<i class="bi bi-power"></i> shutdown', `window.location='shutdown.html'`],
     [
-      '<i class="bi bi-arrow-counterclockwise"></i> 重启',
+      '<i class="bi bi-arrow-counterclockwise"></i> reboot',
       `window.location='reload.html'`,
     ],
   ],
@@ -229,44 +218,44 @@ let cms = {
     function (arg) {
       if (arg) {
         return [
-          '<i class="bi bi-arrow-bar-down"></i> 收起',
+          '<i class="bi bi-arrow-bar-down"></i> put away',
           `$('.dock.about').removeClass('show')`,
         ];
       } else {
         return [
-          '<i class="bi bi-arrow-bar-up"></i> 展开',
+          '<i class="bi bi-arrow-bar-up"></i> expand',
           `$('.dock.about').addClass('show')`,
         ];
       }
     },
     [
-      '<i class="bi bi-info-circle"></i> 更多信息',
+      '<i class="bi bi-info-circle"></i> More information',
       `$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');
         openapp('about');if($('.window.about').hasClass('min'))minwin('about');$('.dock.about').removeClass('show')`,
     ],
   ],
   msgupdate: [
     [
-      '<i class="bi bi-layout-text-window-reverse"></i> 查看详细',
+      '<i class="bi bi-layout-text-window-reverse"></i> view details',
       `openapp('about');if($('.window.about').hasClass('min'))
         minwin('about');$('#win-about>.about').removeClass('show');$('#win-about>.update').addClass('show');
         $('#win-about>.update>div>details:first-child').attr('open','open')`,
     ],
     [
-      '<i class="bi bi-box-arrow-right"></i> 关闭',
+      '<i class="bi bi-box-arrow-right"></i> closure',
       `$('.msg.update').removeClass('show')`,
     ],
   ],
   "explorer.content": [
     [
-      '<i class="bi bi-arrow-clockwise"></i> 刷新',
+      '<i class="bi bi-arrow-clockwise"></i> to refresh',
       `$('#win-explorer>.main>.content>.view').css('opacity','0');setTimeout(()=>{$('#win-explorer>.main>.content>.view').css('opacity','1');},100);`,
     ],
   ],
   "explorer.folder": [
     (arg) => {
       return [
-        '<i class="bi bi-folder2-open"></i> 打开',
+        '<i class="bi bi-folder2-open"></i> open',
         `apps.explorer.goto('${arg}')`,
       ];
     },
@@ -274,12 +263,12 @@ let cms = {
   "edge.tab": [
     (arg) => {
       return [
-        '<i class="bi bi-pencil-square"></i> 命名标签页',
+        '<i class="bi bi-pencil-square"></i> Naming Tabs',
         `apps.edge.c_rename(${arg})`,
       ];
     },
     (arg) => {
-      return ['<i class="bi bi-x"></i> 关闭标签页', `apps.edge.close(${arg})`];
+      return ['<i class="bi bi-x"></i> close tab', `apps.edge.close(${arg})`];
     },
   ],
 };
@@ -595,35 +584,6 @@ let apps = {
       //   $(":root").css("--theme-2", infjs.color2);
       //   $(":root").css("--href", infjs.href);
       return;
-      $.get(
-        "https://api.github.com/repos/tjy-gitnub/win12-theme/contents/" + infp
-      ).then((cnt) => {
-        console.log(
-          "https://api.github.com/repos/tjy-gitnub/win12-theme/contents/" + infp
-        );
-        cnt.forEach((cn) => {
-          if (cn.name == "theme.json") {
-            $.getJSON(
-              "https://tjy-gitnub.github.io/win12-theme/" + cn.path
-            ).then((inf) => {
-              infjs = inf;
-              cnt.forEach((fbg) => {
-                console.log(fbg, infjs);
-                if (fbg.name == infjs.bg) {
-                  $(":root").css(
-                    "--bgul",
-                    `url('https://tjy-gitnub.github.io/win12-theme/${fbg.path}')`
-                  );
-                  $(":root").css("--theme-1", infjs.color1);
-                  $(":root").css("--theme-2", infjs.color2);
-                  $(":root").css("--href", infjs.href);
-                  // $('#set-theme').append(`<a class="a act" onclick="apps.setting.theme_set(\`(${inf})\`)" style="background-image:url('https://tjy-gitnub.github.io/win12-theme/${fbg.path}')">${c.name}</a>`);
-                }
-              });
-            });
-          }
-        });
-      });
     },
   },
   run: {
@@ -928,15 +888,15 @@ let apps = {
             #win-explorer>.main>.content>.view>.group>.item>div>.bar>.content{height: 100%;background-image: linear-gradient(90deg, var(--theme-1), var(--theme-2));
                 border-radius: 10px;}
             #win-explorer>.main>.content>.view>.group>.item>div>.info{color: #959595;font-size: 14px;}</style>
-            <p class="class"><img src="apps/icons/explorer/disk.svg"> 设备和驱动器</p><div class="group">
+            <p class="class"><img src="apps/icons/explorer/disk.svg"> Devices and Drivers </p><div class="group">
             <a class="a item act" ondblclick="apps.explorer.goto('C:')" ontouchend="apps.explorer.goto('C:')" oncontextmenu="showcm(event,'explorer.folder','C:');return stop(event);">
             <img src="apps/icons/explorer/diskwin.svg"><div><p class="name">C</p>
             <div class="bar"><div class="content" style="width: 88%;"></div>
-            </div><p class="info">32.6 GB 可用, 共 143 GB</p></div></a><a class="a item act" ondblclick="apps.explorer.goto('D:')" ontouchend="apps.explorer.goto('D:')"
+            </div><p class="info">32.6 GB / 143 GB</p></div></a><a class="a item act" ondblclick="apps.explorer.goto('D:')" ontouchend="apps.explorer.goto('D:')"
             oncontextmenu="showcm(event,'explorer.folder','D:');return stop(event);">
             <img src="apps/icons/explorer/disk.svg"><div><p class="name">D</p><div class="bar"><div class="content" style="width: 15%;"></div>
-            </div><p class="info">185.3 GB 可用, 共 216 GB</p></div></a></div>`;
-      $("#win-explorer>.main>.content>.tool>.tit")[0].innerHTML = "此电脑";
+            </div><p class="info">185.3 GB /  216 GB</p></div></a></div>`;
+      $("#win-explorer>.main>.content>.tool>.tit")[0].innerHTML = "this PC";
     },
     goto: (path) => {
       $("#win-explorer>.main>.content>.view")[0].innerHTML = "";
@@ -1448,7 +1408,17 @@ Microsoft Windows [版本 12.0.39035.7324]
     reloadElt:
       '<loading class="reloading"><svg viewBox="0 0 16 16"><circle cx="8px" cy="8px" r="5px"></circle><circle cx="8px" cy="8px" r="5px"></circle></svg></loading>',
     newtab: () => {
-      apps.edge.tabs.push([apps.edge.len++, "新建标签页"]);
+      const locale = $.i18n().locale;
+      apps.edge.tabs.push([
+        apps.edge.len++,
+        locale == "zh"
+          ? "新建标签页"
+          : locale == "en"
+          ? "New tab"
+          : locale == "ja"
+          ? "新しいタブ"
+          : "새 탭 페이지",
+      ]);
       $("#win-edge").append(
         `<iframe src="mainpage.html" frameborder="0" class="${
           apps.edge.tabs[apps.edge.tabs.length - 1][0]
@@ -1745,12 +1715,20 @@ let widgets = {
 };
 // 日期、时间
 let da = new Date();
-let date = `星期${
-  ["日", "一", "二", "三", "四", "五", "六"][da.getDay()]
-}, ${da.getFullYear()}年${(da.getMonth() + 1).toString().padStart(2, "0")}月${da
+let date = `${
+  [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+  ][da.getDay()]
+}, ${da.getFullYear()}-${(da.getMonth() + 1).toString().padStart(2, "0")}-${da
   .getDate()
   .toString()
-  .padStart(2, "0")}日`;
+  .padStart(2, "0")}`;
 $("#s-m-r>.row1>.tool>.date").text(date);
 $(".dock.date>.date").text(
   `${da.getFullYear()}/${(da.getMonth() + 1).toString().padStart(2, "0")}/${da
@@ -2424,5 +2402,45 @@ if (
     //     value: v
     // });
     localStorage.setItem(k, v);
+  }
+}
+function opneLink(link, isCrossDomain = false) {
+  if (isCrossDomain) {
+    switch (link) {
+      case "Twitter":
+        window.open("https://twitter.com/FutureWeb3BC");
+        break;
+      case "Telegram":
+        window.open("https://web.telegram.org/");
+        break;
+      case "DextTools":
+        window.open("https://dextools.io/");
+        break;
+      case "Sniffer":
+        window.open("https://tokensniffer.com/");
+        break;
+      default:
+        break;
+    }
+  } else {
+    openapp("edge");
+    apps.edge.newtab();
+    apps.edge.rename(link);
+    apps.edge.goto();
+
+    switch (link) {
+      case "Tool":
+        apps.edge.goto("https://tokentool.app/");
+        break;
+      case "pinkswap":
+        apps.edge.goto("https://www.pinksale.finance/launchpads?chain=ETH");
+        break;
+      case "uniswap":
+        apps.edge.goto("https://app.uniswap.org/#/swap");
+        break;
+
+      default:
+        break;
+    }
   }
 }

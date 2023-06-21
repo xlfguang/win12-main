@@ -13,7 +13,7 @@
     --hover-b: #1111110f;
     --bggrey: #ddd;
     --fill: #d3d3d370;
-    --bgul: url('bg.svg');
+    --bgul: url('img/future.jpg');
     --mm: #ffffffc0;
     --cm: #fafafabb;
     --bar: #efefef37;
@@ -2340,4 +2340,8 @@ list>span.focs.cl {
 
 :root.dark .window.whiteboard>.titbar>p {
     text-shadow: 0 0 5px #fff, 0 0 5px #fff;
+}
+
+.mr-10 {
+    margin-right: 10px;
 }
