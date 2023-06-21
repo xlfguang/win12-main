@@ -2345,3 +2345,10 @@ list>span.focs.cl {
 .mr-10 {
     margin-right: 10px;
 }
+
+.logo {
+
+    display: block;
+    width: 30%;
+    margin: 200px auto 0;
+}
