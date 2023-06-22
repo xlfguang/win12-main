@@ -135,6 +135,7 @@
     "hello": "你好",
     "hello_japanese": "こんにちは",
     "confirm": "确定",
+    "hint": "提示",
     "cancel": "取消",
     "terminal": "终端",
     "available-apps": "可用",

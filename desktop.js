@@ -400,45 +400,7 @@ dps = {
       "document.execCommand('redo')",
     ],
   ],
-  "notepad.view": [
-    [
-      '<i class="bi bi-type"></i> 插入正常字块',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<p>T</p>'",
-    ],
-    [
-      '<i class="bi bi-type-h1"></i> 插入主标题',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<h1>H1</h1>'",
-    ],
-    [
-      '<i class="bi bi-type-h2"></i> 插入次标题',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<h2>H2</h2>'",
-    ],
-    [
-      '<i class="bi bi-type-h3"></i> 插入副标题',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<h3>H3</h3>'",
-    ],
-    [
-      '<i class="bi bi-type-underline"></i> 插入下划线',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<u>U</u>'",
-    ],
-    [
-      '<i class="bi bi-type-strikethrough"></i> 插入删除线',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<s>S</s>'",
-    ],
-    [
-      '<i class="bi bi-type-italic"></i> 插入斜体字',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<i>I</i>'",
-    ],
-    [
-      '<i class="bi bi-type-bold"></i> 插入加粗字',
-      "hidedp(true);$('#win-notepad>.text-box')[0].innerHTML+='<b>B</b>'",
-    ],
-    "<hr>",
-    [
-      '<i class="bi bi-fonts"></i> 字体',
-      "hidedp(true);showwin('notepad-fonts');apps.notepadFonts.reset();",
-    ],
-  ],
+  "notepad.view": [],
 };
 let dpt = null,
   isOnDp = false;
@@ -2105,7 +2067,7 @@ try {
     });
   });
 } catch (TypeError) {
-  console.log("内部错误: 无法获取电量");
+  console.log("");
 }
 
 // 选择框
@@ -2209,7 +2171,7 @@ function win_move(e) {
       (deltaLeft / (this.offsetWidth - 45 * 3)) *
       (0.7 * document.body.offsetWidth - 45 * 3);
     maxwin(this.classList[1], false);
-    // 窗口控制按钮宽 45px
+
     $(this).css("cssText", `left:${cx - deltaLeft}px;top:${cy - deltaTop}px;`);
     $(".window." + this.classList[1] + ">.titbar>div>.wbtg.max").html(
       '<i class="bi bi-app"></i>'

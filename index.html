@@ -292,17 +292,17 @@
           <a class="a sm-app enable"
             onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/文档');hide_startmenu();">
             <img src="icon/folder/docs.svg" />
-            <p data-i18n="folder.docs">文档</p>
+            <p data-i18n="docs"></p>
           </a>
           <a class="a sm-app enable"
             onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/图片');hide_startmenu();">
             <img src="icon/folder/pics.svg" />
-            <p data-i18n="folder.pics">图片</p>
+            <p data-i18n="pics"></p>
           </a>
           <a class="a sm-app enable"
             onclick="openapp('explorer');apps.explorer.goto('C:/用户/Administrator/音乐');hide_startmenu();">
             <img src="icon/folder/music.svg" />
-            <p data-i18n="folder.music">音乐</p>
+            <p data-i18n="music"></p>
           </a>
         </div>
 
@@ -310,7 +310,7 @@
           <p style="font-size: 40px; margin-bottom: -10px" class="time" data-i18n="tool.time">
             12:00
           </p>
-          <p class="date" data-i18n="tool.date">星期一, 2368年13月34日</p>
+          <p class="date" data-i18n="tool.date"></p>
           <a class="a btn btn-icon power" win12_title="power" onclick="$(this).addClass('show')">
             <span class="bi bi-power"></span>
             <i class="bi bi-power"
@@ -358,22 +358,22 @@
             <p data-i18n="windows-security-center-app"></p>
           </a>
           <a class="a sm-app enable about" onclick="openapp('about');hide_startmenu();"
-            oncontextmenu="return showcm(event,'smapp',['about','关于 Win12 网页版'])">
+            oncontextmenu="return showcm(event,'smapp',['about','About Future Web3.0'])">
             <img src="icon/about.svg" />
             <p data-i18n="about-app"></p>
           </a>
           <a class="a sm-app enable explorer" onclick="openapp('explorer');hide_startmenu();"
-            oncontextmenu="return showcm(event,'smapp',['explorer','文件资源管理器'])">
+            oncontextmenu="return showcm(event,'smapp',['explorer','file explorer'])">
             <img src="icon/explorer.svg" />
             <p data-i18n="explorer-app"></p>
           </a>
           <a class="a sm-app enable notepad" onclick="openapp('notepad');hide_startmenu();"
-            oncontextmenu="return showcm(event,'smapp',['notepad','记事本'])">
+            oncontextmenu="return showcm(event,'smapp',['notepad','notebook'])">
             <img src="icon/notepad.svg" />
             <p data-i18n="notepad-app"></p>
           </a>
           <a class="a sm-app enable setting" onclick="openapp('setting');hide_startmenu();"
-            oncontextmenu="return showcm(event,'smapp',['setting','设置'])">
+            oncontextmenu="return showcm(event,'smapp',['setting','setting'])">
             <img src="icon/setting.svg" />
             <p data-i18n="setting-app"></p>
           </a>
@@ -2277,7 +2277,7 @@
   <div class="window camera-notice">
     <div class="titbar">
       <img src="icon/camera.svg" class="icon" />
-      <p>提示</p>
+      <p data-i18n="hint"></p>
       <div>
         <a class="a wbtg red" onclick="hidewin('camera-notice');hidewin('camera')"><i class="bi bi-x-lg"></i></a>
       </div>
@@ -2304,7 +2304,7 @@
 
       <div class="buttons">
         <a class="a submit act"
-          onclick="hidewin('camera-notice', 'configs');localStorage.setItem('camera', true);openapp('camera');"></a>
+          onclick="hidewin('camera-notice', 'configs');localStorage.setItem('camera', true);openapp('camera');" data-i18n="confirm"></a>
         <a class="a cancel act" onclick="hidewin('camera-notice')" data-i18n="disagree"></a>
       </div>
     </div>
@@ -2312,7 +2312,7 @@
   <div class="window run">
     <div class="titbar">
       <img src="icon/run.png" class="icon" />
-      <p data-i18n="run-app">运行</p>
+      <p data-i18n="run-app"></p>
       <div>
         <a class="a wbtg red" onclick="hidewin('run')"><i class="bi bi-x-lg"></i></a>
       </div>

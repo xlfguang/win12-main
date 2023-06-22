@@ -50,6 +50,7 @@
     "focus_assistant": "フォーカスアシスタント",
     "focus_assistant_desc": "通知、自動ルール",
     "power": "電源",
+    "hint": "ヒント",
     "power_desc": "スリープ、バッテリー使用状況、省電力モード",
     "storage": "ストレージ",
     "storage_desc": "ストレージスペース、ドライブ、設定ルール",
