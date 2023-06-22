@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js" async></script>
-  <!-- Pyodide, 目前已采用 -->
+  <!-- Pyodide-->
   <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
 	<script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
-  <!-- PyScript, 已弃用 -->
+  <!-- PyScript -->
   <script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds@master/src/ace.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds@master/src-noconflict/ext-language_tools.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/ajaxorg/ace-builds@master/src-noconflict/ext-error_marker.js"></script>
@@ -101,7 +101,7 @@
             font-size: 25px;
             display: none;
           ">
-        正在更新
+        Updating
       </p>
     </loading>
     <script>
@@ -116,11 +116,11 @@
     <div class="name">Administrator</div>
     <div id="login" onclick="
 			this.id = 'login-after';
-			this.innerText = '登录中...';
+			this.innerText = 'login...';
 			document.querySelector('#loginback').removeChild(document.querySelector('#loginback .power'));
 			var qwq = window.setInterval(() => {
 				if (this.innerText.match(/\.\.\./)) {
-					this.innerText = '登录中.';
+					this.innerText = 'login.';
 				}
 				else {
 					this.innerText += '.';
@@ -142,7 +142,7 @@
 			}, 1000);
 			this.onclick = null;
 		">
-      登录
+      login
     </div>
     <a class="power" onclick="$(this).addClass('show')">
       <i class="bi bi-power" onclick="setTimeout(() => {window.location='shutdown.html';},200);"
@@ -168,7 +168,7 @@
   <script src="./i18n.js"></script>
 
   <div id="start-menu">
-    <!-- 开始菜单 -->
+
     <div id="s-m-l">
       <div id="s-m-user">
         <svg viewBox="0,0,257,344" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -219,44 +219,44 @@
 				$('#search-input').focus();" />
       <input-before class="bi bi-search"></input-before>
       <list>
-        <p class="text" data-i18n="available-apps">可用</p>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['setting', '设置'])"
+        <p class="text" data-i18n="available-apps">available</p>
+        <a oncontextmenu="return showcm(event, 'smlapp', ['setting', 'setting'])"
           onclick="openapp('setting');hide_startmenu();">
           <img src="icon/setting.svg" />
-          <p data-i18n="setting-app">设置</p>
+          <p data-i18n="setting-app">setting</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['explorer', '文件资源管理器'])"
+        <a oncontextmenu="return showcm(event, 'smlapp', ['explorer', 'file explorer'])"
           onclick="openapp('explorer');hide_startmenu();">
           <img src="icon/explorer.svg" />
-          <p data-i18n="explorer-app">文件资源管理器</p>
+          <p data-i18n="explorer-app">file explorer</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['calc', '计算器'])" onclick="openapp('calc');hide_startmenu();">
+        <a oncontextmenu="return showcm(event, 'smlapp', ['calc', 'calculator'])" onclick="openapp('calc');hide_startmenu();">
           <img src="icon/calc.svg" />
-          <p data-i18n="calculator-app">计算器</p>
+          <p data-i18n="calculator-app">calculator</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['run', '运行'])" onclick="openapp('run');hide_startmenu();">
+        <a oncontextmenu="return showcm(event, 'smlapp', ['run', 'run'])" onclick="openapp('run');hide_startmenu();">
           <img src="icon/run.png" />
-          <p data-i18n="run-app">运行</p>
+          <p data-i18n="run-app">run</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['about', '关于Win12网页版'])"
+        <a oncontextmenu="return showcm(event, 'smlapp', ['about', 'About Win12 web version'])"
           onclick="openapp('about');hide_startmenu();">
           <img src="icon/about.svg" />
-          <p data-i18n="about-app">关于Win12网页版</p>
+          <p data-i18n="about-app">About Win12 web version</p>
         </a>
         <a oncontextmenu="return showcm(event, 'smlapp', ['notepad', '记事本'])"
           onclick="openapp('notepad');hide_startmenu();">
           <img src="icon/notepad.svg" />
-          <p data-i18n="notepad-app">记事本</p>
+          <p data-i18n="notepad-app">notebook</p>
         </a>
         <a oncontextmenu="return showcm(event, 'smlapp', ['edge', 'Microsoft Edge'])"
           onclick="openapp('edge');hide_startmenu();">
           <img src="icon/edge.svg" />
           <p data-i18n="edge-app">Microsoft Edge</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['camera', '相机'])"
+        <a oncontextmenu="return showcm(event, 'smlapp', ['camera', 'camera'])"
           onclick="apps.camera.notice();hide_startmenu()">
           <img src="icon/camera.svg" />
-          <p data-i18n="camera-app">相机</p>
+          <p data-i18n="camera-app">camera</p>
         </a>
         <a oncontextmenu="return showcm(event, 'smlapp', ['pythonEditor', 'Python Editor'])"
           onclick="openapp('pythonEditor');hide_startmenu()">
@@ -268,18 +268,18 @@
           <img src="icon/python.png" />
           <p data-i18n="python-app">Python 3.10.2</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['terminal', '终端'])"
+        <a oncontextmenu="return showcm(event, 'smlapp', ['terminal', 'terminal'])"
           onclick="openapp('terminal');hide_startmenu();">
           <img src="icon/terminal.svg" />
-          <p data-i18n="terminal-app">终端</p>
+          <p data-i18n="terminal-app">terminal</p>
         </a>
         <a oncontextmenu="return showcm(event, 'smlapp', ['whiteboard', 'Whiteboard'])"
           onclick="openapp('whiteboard');hide_startmenu();">
           <img src="icon/whiteboard.png" />
           <p data-i18n="whiteboard-app">Whiteboard</p>
         </a>
-        <p class="text" data-i18n="web-apps">Web 应用</p>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['youtube', '哔哩哔哩'])"
+        <p class="text" data-i18n="web-apps">web application</p>
+        <a oncontextmenu="return showcm(event, 'smlapp', ['youtube', 'Bilibili'])"
           onclick="openapp('youtube');hide_startmenu();">
           <img src="icon/youtube.png" />
           <p data-i18n="youtube-app">YouTube</p>
