@@ -102,17 +102,17 @@
         type="text"
         onkeyup="if(event.keyCode==13){if (!/^(((ht|f)tps?):\/\/)?([^!@#$%^&*?.\s-]([^!@#$%^&*?.\s]{0,63}[^!@#$%^&*?.\s])?\.)+[a-z]{2,6}\/?/.test(this.value)) {
             window.location='https://bing.com/search?q='+this.value;
-            //可能报错
+     
             apps.edge.rename(this.value);
         }
         else if (!/^https?:\/\//.test(this.value)) {
             window.location='http://' + this.value;
-            //可能报错
+
             apps.edge.rename('http://' + this.value);
         }
         else {
             window.location=this.value;
-            //可能报错
+
             apps.edge.rename(this.value);
         }}"
         data-i18n-placeholder="Bing"

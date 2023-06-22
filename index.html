@@ -154,7 +154,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="../libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
-  <!-- Source -->
   <script src="./src/jquery.i18n.js"></script>
   <script src="./src/jquery.i18n.messagestore.js"></script>
   <script src="./src/jquery.i18n.fallbacks.js"></script>
@@ -332,7 +331,6 @@
         </div>
       </div>
       <div class="pinned">
-        <!-- 已固定 卡片 -->
         <div class="title">
           <p data-i18n="pinned-title"></p>
           <div>
@@ -390,7 +388,7 @@
             <p data-i18n="office-app"></p>
           </a>
           <a class="a sm-app enable terminal" onclick="openapp('terminal');hide_startmenu();"
-            oncontextmenu="return showcm(event,'smapp',['terminal','终端'])">
+            oncontextmenu="return showcm(event,'smapp',['terminal','terminal'])">
             <img src="icon/terminal.svg" />
             <p data-i18n="terminal-app"></p>
           </a>
@@ -398,7 +396,7 @@
       </div>
 
       <div class="tuijian">
-        <!-- 推荐的项目 卡片 -->
+ 
         <div class="title">
           <p data-i18n="recommend-title"></p>
           <div>
@@ -410,7 +408,6 @@
     </div>
   </div>
   <div id="search-win">
-    <!-- 搜索框 -->
     <input type="text" class="input" data-i18n-placeholder="inputplaceholder" id="search-input"
       oninput="apps.search.search(this.value.length)" />
     <input-before class="bi bi-search"></input-before>
@@ -607,54 +604,7 @@
       </div>
     </div>
   </div>
-  <!-- <div id="battery">
-		<div class="tit">
-			<p>电池与亮度</p>
-			<hr>
-		</div>
-		<div class="cont">
-			<div class="brightness">
-				<div class="pic"></div>
-				<div class="range">
-					<div class="tit">
-						<div class="title">显示器亮度</div>
-						<div class="num">100%</div>
-					</div>
-					<div class="range-container" onmousedown="dragBrightness(event)" ontouchstart="dragBrightness(event)">
-						<div class="after"></div>
-						<div class="slider-btn"></div>
-					</div>
-				</div>
-			</div>
-			<div class="battery">
-				<div class="pic">
-					<svg viewBox="1 7 29 15" width="50px" height="50px" version="1.1" id="svg5">
-						<defs id="defs9">
-							<linearGradient id="linearGradient45">
-								<stop style="stop-color:#ad6eca;stop-opacity:1" offset="0" id="stop40" />
-								<stop style="stop-color:#3b91d8;stop-opacity:0.94117647" offset="1" id="stop42" />
-							</linearGradient>
-							<linearGradient xlink:href="#linearGradient45" id="linearGradient47" x1="0.89381856" y1="6.8598623"
-								x2="30.006811" y2="21.973007" gradientUnits="userSpaceOnUse" />
-						</defs>
-						<path
-							d="M 4 7 C 2.3550302 7 1 8.3550302 1 10 L 1 19 C 1 20.64497 2.3550302 22 4 22 L 24 22 C 25.64497 22 27 20.64497 27 19 L 27 10 C 27 8.3550302 25.64497 7 24 7 L 4 7 z M 4 9 L 24 9 C 24.56503 9 25 9.4349698 25 10 L 25 19 C 25 19.56503 24.56503 20 24 20 L 4 20 C 3.4349698 20 3 19.56503 3 19 L 3 10 C 3 9.4349698 3.4349698 9 4 9 z M 5 11 L 5 18 L 23 18 L 23 11 L 5 11 z M 28 12 L 28 17 L 29 17 C 29.552 17 30 16.552 30 16 L 30 13 C 30 12.448 29.552 12 29 12 L 28 12 z"
-							id="path2" style="fill-opacity:1;fill:url(#linearGradient47)"
-						/>
-					</svg>
-				</div>
-				<div class="range">
-					<div class="tit">
-						<div class="title">电池</div>
-						<div class="num">100%</div>
-					</div>
-					<div class="range-container">
-						<div class="after"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+
   <div id="datebox">
     <div class="tit">
       <p class="time">12:29:19</p>
@@ -663,19 +613,18 @@
     </div>
     <div class="cont">
       <div class="head">
-        <p data-i18n="su">一</p>
-        <p data-i18n="mo">二</p>
-        <p data-i18n="tu">三</p>
-        <p data-i18n="we">四</p>
-        <p data-i18n="th">五</p>
-        <p data-i18n="fr">六</p>
-        <p data-i18n="sa">日</p>
+        <p data-i18n="su">Monday</p>
+        <p data-i18n="mo">Tuesday</p>
+        <p data-i18n="tu">Wednesday</p>
+        <p data-i18n="we">Thursday</p>
+        <p data-i18n="th">Friday</p>
+        <p data-i18n="fr">Saturday</p>
+        <p data-i18n="sa">Sunday</p>
       </div>
       <div class="body"></div>
     </div>
   </div>
   <div id="dock-box">
-    <!-- Dock(任务)栏 -->
     <div class="dock dock-start">
       <a class="dock-btn" id="start-btn" win12_title="start" onclick="
 				if($('#start-menu').hasClass('show')){
@@ -697,7 +646,6 @@
 						$('#start-menu').addClass('show');
 					}, 0);
 				}" oncontextmenu="return showcm(event,'winx',null)">
-        <!-- 开始按钮 -->
         <svg class="menu" viewBox="0,0,440,439" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden">
           <defs>
@@ -719,25 +667,7 @@
           </g>
         </svg>
         <img src="icon/logo.svg" class="ico" />
-        <!-- <svg class="ico" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0,0,306,305"><defs><clipPath id="clip0"><rect x="897" y="208" width="306" height="305"></rect>
-					</clipPath><linearGradient x1="885.371" y1="221.859" x2="1214.63" y2="498.141" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="sf1">
-						<stop offset="0" stop-color="#A964C8"></stop><stop offset="0.18" stop-color="#A964C8"></stop><stop offset="0.36" stop-color="#A266E4"></stop>
-						<stop offset="0.73" stop-color="#346ED8"></stop><stop offset="0.91" stop-color="#2D8AD5"></stop><stop offset="1" stop-color="#2D8AD5"></stop>
-					</linearGradient><linearGradient x1="317.629" y1="13.8595" x2="-11.6295" y2="290.141" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="sf2">
-						<stop offset="0" stop-color="#A964C8"></stop><stop offset="0.18" stop-color="#A964C8"></stop><stop offset="0.36" stop-color="#A266E4"></stop>
-						<stop offset="0.73" stop-color="#346ED8"></stop><stop offset="0.91" stop-color="#2D8AD5"></stop><stop offset="1" stop-color="#2D8AD5"></stop>
-					</linearGradient><linearGradient x1="885.371" y1="221.859" x2="1214.63" y2="498.141" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="sf3">
-						<stop offset="0" stop-color="#A964C8"></stop><stop offset="0.18" stop-color="#A964C8"></stop><stop offset="0.36" stop-color="#A266E4"></stop>
-						<stop offset="0.73" stop-color="#346ED8"></stop><stop offset="0.91" stop-color="#2D8AD5"></stop><stop offset="1" stop-color="#2D8AD5"></stop>
-					</linearGradient><linearGradient x1="-11.6295" y1="290.141" x2="317.629" y2="13.8595" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="sf4">
-						<stop offset="0" stop-color="#A964C8"></stop><stop offset="0.18" stop-color="#A964C8"></stop><stop offset="0.36" stop-color="#A266E4"></stop>
-						<stop offset="0.73" stop-color="#346ED8"></stop><stop offset="0.91" stop-color="#2D8AD5"></stop><stop offset="1" stop-color="#2D8AD5"></stop>
-					</linearGradient></defs><g clip-path="url(#clip0)" transform="translate(-897 -208)">
-						<path d="M936.813 208 1035.2 208 1035.2 208 1036 340.407C1011.65 331.352 986.507 325.493 963.762 325.226 941.508 325.759 919.254 339.075 897 346L897 247.755C897 225.799 914.825 208 936.813 208Z" fill="url(#sf1)" fill-rule="evenodd"></path>
-						<path d="M40.0431 0 139 0 139 0 139 140.549C115.82 150.681 92.6407 159.212 69.4611 158.946 45.5026 160.012 23.1537 145.082 0 138.15L0 39.7981C0 17.8182 17.9278 0 40.0431 0Z" fill="url(#sf2)" fill-rule="evenodd" transform="matrix(-1 0 0 1 1203 208)"></path>
-						<path d="M1163.19 512 1064.8 512 1064.8 512 1064 379.593C1088.35 388.648 1113.49 394.507 1136.24 394.774 1158.49 394.241 1180.75 380.925 1203 374L1203 472.245C1203 494.201 1185.18 512 1163.19 512Z" fill="url(#sf3)" fill-rule="evenodd"></path>
-						<path d="M39.755 0 138 0 138 0 138 140.549C114.987 150.681 91.9742 159.212 68.9614 158.946 45.1752 160.012 22.9872 145.082 0 138.15L0 39.7981C0 17.8182 17.7989 0 39.755 0Z" fill="url(#sf4)" fill-rule="evenodd" transform="matrix(1 -1.22465e-16 -1.22465e-16 -1 897 512)"></path>
-					</g></svg> -->
+   
       </a>
       <a class="dock-btn" id="search-btn" win12_title="search" onclick="
 			if ($('#search-win').hasClass('show')) {
@@ -1324,7 +1254,7 @@
   <div class="window setting">
     <div class="titbar">
       <img src="icon/setting.svg" class="icon" />
-      <p data-i18n="settings">设置</p>
+      <p data-i18n="settings"></p>
       <div>
         <a class="a wbtg red" onclick="hidewin('setting')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('setting')"><i class="bi bi-app"></i></a>
@@ -1786,7 +1716,7 @@
             </div>
           </div>
           <div class="view">
-            <!-- 文件列表  -->
+    
           </div>
         </div>
       </div>
@@ -1894,7 +1824,7 @@
             </p>
           </details>
           <details>
-            <summary><span data-i18n='summarySpanTag1'>v5.4.1</span> <span data-i18n='summarySpanTag2'>bug修复</span>
+            <summary><span data-i18n='summarySpanTag1'>v5.4.1</span> <span data-i18n='summarySpanTag2'>bug fix</span>
             </summary>
 
             <p>
@@ -1998,7 +1928,7 @@
       <div class="text-box" contenteditable="true" spellcheck="false">
         <p>Type here...</p>
       </div>
-      <a href="" download="未命名.html" style="opacity: 0" class="save" data-i18n="saveAs"></a>
+      <a href="" download="unName.html" style="opacity: 0" class="save" data-i18n="saveAs"></a>
     </div>
   </div>
   <div class="window notepad-fonts">
@@ -2036,12 +1966,7 @@
             <a class="option">Palatino Linotype</a>
             <a class="option">serif</a>
             <a class="option">Tahoma</a>
-            <a class="option">仿宋</a>
-            <a class="option">方正舒体</a>
-            <a class="option">华文行楷</a>
-            <a class="option">楷体</a>
-            <a class="option">宋体</a>
-            <a class="option">幼圆</a>
+   
           </list>
         </div>
         <div class="select-input" id="win-notepad-font-size">
@@ -2078,7 +2003,7 @@
         <div class="description" data-i18n="preview"></div>
         <div class="preview-box">
           <div>Hello</div>
-          <div data-i18n="hello">你好</div>
+          <div data-i18n="hello">hello</div>
           <div data-i18n="hello_japanese">こんにちは</div>
         </div>
       </div>
@@ -2141,7 +2066,7 @@
       <img src="icon/edge.svg" class="icon" />
       <p style="display: none">Microsoft Edge</p>
       <div class="tabs">
-        <!-- in "desktop.js", apps.edge.init -->
+    
       </div>
       <div>
         <a class="a wbtg red" onclick="hidewin('edge')"><i class="bi bi-x-lg"></i></a>
@@ -2169,7 +2094,7 @@
         <input type="text" onkeyup="if(event.keyCode==13&&$(this).val()!=''){apps.edge.goto($(this).val())}"
           data-i18n-placeholder="Bing" class="url" spellcheck="false" />
         <input type="text" onkeyup="if(event.keyCode==13&&$(this).val()!=''){apps.edge.rename($(this).val())}"
-          placeholder="为标签页命名" class="rename" spellcheck="false" />
+          placeholder="Name the tab" class="rename" spellcheck="false" />
         <a class="a">
           <i class="bi bi-info-circle"
             win12_title="Browsers can only access sites that allow nesting. Due to rule restrictions, the title of the web page cannot be obtained, please right-click the tab page and name it manually"></i>
@@ -2215,7 +2140,7 @@
   <div class="window bilibili webapp">
     <div class="titbar">
       <img src="icon/bilibili.png" class="icon" />
-      <p>哔哩哔哩</p>
+      <p>Bilibili</p>
       <div>
         <a class="a wbtg red" onclick="hidewin('bilibili')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('bilibili')"><i class="bi bi-app"></i></a>
@@ -2251,7 +2176,7 @@
   <div class="window camera">
     <div class="titbar">
       <img src="icon/camera.svg" class="icon" />
-      <p>相机</p>
+      <p>camera</p>
       <div>
         <a class="a wbtg red" onclick="hidewin('camera')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('camera')"><i class="bi bi-app"></i></a>
@@ -2427,39 +2352,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="window winver">
-    <div class="titbar">
-      <p>关于 Windows</p>
-      <div>
-        <a class="a wbtg red" onclick="hidewin('winver');"><i class="bi bi-x-lg"></i></a>
-      </div>
-    </div>
-    <div class="loadback"></div>
-    <div class="content" id="win-winver">
-      <div class="logo">
-        <div class="img"></div>
-        <p>Windows 12</p>
-      </div>
-      <hr />
-      <p>Microsoft Windows</p>
-      <p>版本 25H2 (OS 内部版本 24612.1896)</p>
-      <p>© Microsoft Corporation。保留所有权利。</p>
-      <p style="margin-top: 20px">
-        Windows12
-        专业版操作系统及其用户界面受美国和其他国家/地区的商标法和其他待颁布或已颁布的知识产权法保护。
-      </p>
-      <div class="bottom">
-        <p>根据Microsoft软件许可条款，许可如下用户使用本产品</p>
-        <p style="margin: 20px 0 0 90px">Administrator</p>
-      </div>
-      <p ondblclick="$(this).hide()" class="a mesg">
-        上面都是胡扯，切勿当真(双击隐藏此消息)
-      </p>
-      <div class="buttons">
-        <a class="a submit act" onclick="hidewin('winver');">确定</a>
-      </div>
-    </div>
-  </div> -->
   <script src="desktop.js"></script>
   <script src="linkwallet.js"></script>
 </body>
