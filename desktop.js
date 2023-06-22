@@ -74,10 +74,13 @@ let cms = {
         return "null";
       }
       if ($(".window." + arg).hasClass("max")) {
-        return ['<i class="bi bi-window-stack"></i> 还原', `maxwin('${arg}')`];
+        return [
+          '<i class="bi bi-window-stack"></i> reduction',
+          `maxwin('${arg}')`,
+        ];
       } else {
         return [
-          '<i class="bi bi-window-fullscreen"></i> 最大化',
+          '<i class="bi bi-window-fullscreen"></i> maximize',
           `maxwin('${arg}')`,
         ];
       }
@@ -86,23 +89,26 @@ let cms = {
       if (arg in nomin) {
         return "null";
       } else {
-        return ['<i class="bi bi-window-dash"></i> 最小化', `minwin('${arg}')`];
+        return [
+          '<i class="bi bi-window-dash"></i> minimize',
+          `minwin('${arg}')`,
+        ];
       }
     },
     function (arg) {
       if (arg in nomin) {
         return [
-          '<i class="bi bi-window-x"></i> 关闭',
+          '<i class="bi bi-window-x"></i> closure',
           `hidewin('${arg}', 'configs')`,
         ];
       } else {
-        return ['<i class="bi bi-window-x"></i> 关闭', `hidewin('${arg}')`];
+        return ['<i class="bi bi-window-x"></i> closure', `hidewin('${arg}')`];
       }
     },
   ],
   taskbar: [
     function (arg) {
-      return ['<i class="bi bi-window-x"></i> 关闭', `hidewin('${arg}')`];
+      return ['<i class="bi bi-window-x"></i> closure', `hidewin('${arg}')`];
     },
   ],
   desktop: [
@@ -121,7 +127,7 @@ let cms = {
     function (arg) {
       if ($("#start-menu").hasClass("show")) {
         return [
-          '<i class="bi bi-box-arrow-in-down"></i> 关闭开始菜单',
+          '<i class="bi bi-box-arrow-in-down"></i> close start menu',
           `hide_startmenu()`,
         ];
       } else {
@@ -155,13 +161,13 @@ let cms = {
   smapp: [
     function (arg) {
       return [
-        '<i class="bi bi-window"></i> 打开',
+        '<i class="bi bi-window"></i> open',
         `openapp('${arg[0]}');hide_startmenu();`,
       ];
     },
     function (arg) {
       return [
-        '<i class="bi bi-link-45deg"></i> 在桌面创建链接',
+        '<i class="bi bi-link-45deg"></i> create link on desktop',
         "$('#desktop').append(`<div class='b' ondblclick=openapp('" +
           arg[0] +
           "')  ontouchstart=openapp('" +
@@ -175,7 +181,7 @@ let cms = {
     },
     function (arg) {
       return [
-        '<i class="bi bi-x"></i> 取消固定',
+        '<i class="bi bi-x"></i> unpin',
         `$('#s-m-r>.pinned>.apps>.sm-app.${arg[0]}').remove()`,
       ];
     },
@@ -183,13 +189,13 @@ let cms = {
   smlapp: [
     function (arg) {
       return [
-        '<i class="bi bi-window"></i> 打开',
+        '<i class="bi bi-window"></i> open',
         `openapp('${arg[0]}');hide_startmenu();`,
       ];
     },
     function (arg) {
       return [
-        '<i class="bi bi-link-45deg"></i> 在桌面创建链接',
+        '<i class="bi bi-link-45deg"></i> create link on desktop',
         "$('#desktop').append(`<div class='b' ondblclick=openapp('" +
           arg[0] +
           "')  ontouchstart=openapp('" +
@@ -203,7 +209,7 @@ let cms = {
     },
     function (arg) {
       return [
-        '<i class="bi bi-pin-angle"></i> 固定到开始菜单',
+        '<i class="bi bi-pin-angle"></i> pin to start menu',
         "pinapp('" +
           arg[0] +
           "', '" +
@@ -356,41 +362,41 @@ $("#cm>.foc").blur(() => {
 dps = {
   "notepad.file": [
     [
-      '<i class="bi bi-file-earmark-plus"></i> 新建',
+      '<i class="bi bi-file-earmark-plus"></i> new build',
       `hidedp(true);$('#win-notepad>.text-box').addClass('down');
         setTimeout(()=>{$('#win-notepad>.text-box').val('');$('#win-notepad>.text-box').removeClass('down')},200);`,
     ],
     [
-      '<i class="bi bi-box-arrow-right"></i> 另存为',
+      '<i class="bi bi-box-arrow-right"></i> Save as',
       `hidedp(true);$('#win-notepad>.save').attr('href', window.URL.createObjectURL(new Blob([$('#win-notepad>.text-box').html()])));
         $('#win-notepad>.save')[0].click();`,
     ],
     "<hr>",
     [
-      '<i class="bi bi-x"></i> 退出',
+      '<i class="bi bi-x"></i> back',
       `isOnDp=false;hidedp(true);hidewin('notepad')`,
     ],
   ],
   "notepad.edit": [
     [
-      '<i class="bi bi-files"></i> 复制 <info>Ctrl+C</info>',
+      '<i class="bi bi-files"></i> copy <info>Ctrl+C</info>',
       "document.execCommand('copy')",
     ],
     [
-      '<i class="bi bi-clipboard"></i> 粘贴 <info>Ctrl+V</info>',
+      '<i class="bi bi-clipboard"></i> paste <info>Ctrl+V</info>',
       `document.execCommand(\'paste\')`,
     ],
     [
-      '<i class="bi bi-scissors"></i> 剪切 <info>Ctrl+X</info>',
+      '<i class="bi bi-scissors"></i> to cut <info>Ctrl+X</info>',
       "document.execCommand('cut')",
     ],
     "<hr>",
     [
-      '<i class="bi bi-arrow-return-left"></i> 撤销 <info>Ctrl+Z</info>',
+      '<i class="bi bi-arrow-return-left"></i> revoke <info>Ctrl+Z</info>',
       "document.execCommand('undo')",
     ],
     [
-      '<i class="bi bi-arrow-clockwise"></i> 重做 <info>Ctrl+Y</info>',
+      '<i class="bi bi-arrow-clockwise"></i> redo <info>Ctrl+Y</info>',
       "document.execCommand('redo')",
     ],
   ],
@@ -1305,8 +1311,8 @@ Type "help", "copyright", "credits" or "license" for more information.
   terminal: {
     init: () => {
       $("#win-terminal").html(`<pre>
-Microsoft Windows [版本 12.0.39035.7324]
-(c) Microsoft Corporation。保留所有权利。
+Microsoft Windows [V 12.0.39035.7324]
+(c) Microsoft Corporation。all rights reserved。
         </pre>
         <pre class="text-cmd"></pre>
         <pre style="display: flex"><span class="prompt">C:\\Windows\\System32> </span><input type="text" onkeyup="if (event.keyCode == 13) { apps.terminal.run(); }"></pre>`);
@@ -1328,14 +1334,12 @@ Microsoft Windows [版本 12.0.39035.7324]
             openapp(command);
           } else {
             var newD = document.createElement("div");
-            newD.innerText = `"${command}"不是内部或外部命令,也不是可运行程序
-或批处理文件`;
+            newD.innerText = `"${command}"is not recognized as an internal or external command, nor is it executable or batch file`;
             elt.appendChild(newD);
           }
         } catch {
           var newD = document.createElement("div");
-          newD.innerText = `"${command}"不是内部或外部命令,也不是可运行程序
-或批处理文件`;
+          newD.innerText = `"${command}"is not recognized as an internal or external command, nor is it executable or batch file`;
           elt.appendChild(newD);
         }
       }
@@ -1367,19 +1371,19 @@ Microsoft Windows [版本 12.0.39035.7324]
         apps.search.showdetail(le % 8);
       } else {
         $("#search-win>.ans>.list>list").html(
-          `<p class="text">推荐</p>
+          `<p class="text">recommend</p>
 					<a onclick="openapp('setting');$('#search-btn').removeClass('show');
 					$('#search-win').removeClass('show');
 					setTimeout(() => {
 						$('#search-win').removeClass('show-begin');
 					}, 200);">
-						<img src="icon/setting.svg"><p>设置</p></a>
+						<img src="icon/setting.svg"><p>setting</p></a>
 					<a onclick="openapp('about');$('#search-btn').removeClass('show');
 					$('#search-win').removeClass('show');
 					setTimeout(() => {
 						$('#search-win').removeClass('show-begin');
 					}, 200);">
-						<img src="icon/about.svg"><p>关于Win12网页版</p></a>`
+						<img src="icon/about.svg"><p>About</p></a>`
         );
         $("#search-win>.ans>.view").removeClass("show");
       }
@@ -2422,6 +2426,8 @@ function opneLink(link, isCrossDomain = false) {
       case "discord":
         window.open("https://discord.com/app");
         break;
+      case "youtube":
+        window.open("https://www.youtube.com/");
       default:
         break;
     }
@@ -2439,7 +2445,7 @@ function opneLink(link, isCrossDomain = false) {
         apps.edge.goto("https://www.pinksale.finance/launchpads?chain=ETH");
         break;
       case "uniswap":
-        apps.edge.goto("https://app.uniswap.org/#/swap");
+        apps.edge.goto("https://app.uniswap.org/#/swap?lng=en-US");
         break;
 
       default:

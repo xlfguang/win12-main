@@ -242,5 +242,8 @@
     "version-5.0.1": "v5.0.1",
     "details-bug-fixes": "버그 수정",
     "version-5.0.0": "v5.0.0",
-    "details-new-edge": "새로운 Edge"
+    "details-new-edge": "새로운 Edge",
+    "runcmd": "Windows는 입력한 이름에 따라 해당하는 프로그램, 폴더, 문서 또는 인터넷 리소스를 엽니다.",
+    "agree": "동의하고 계속하기",
+    "disagree": "동의하지 않음"
 }

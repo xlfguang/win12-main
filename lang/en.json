@@ -235,5 +235,8 @@
     "version-5.0.1": "v5.0.1",
     "details-bug-fixes": "Bug fixes",
     "version-5.0.0": "v5.0.0",
-    "details-new-edge": "New Edge"
+    "details-new-edge": "New Edge",
+    "runcmd": "Windows will open the corresponding program, folder, document.",
+    "agree": "Agree and continue",
+    "disagree": "Disagree"
 }

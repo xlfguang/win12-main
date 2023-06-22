@@ -234,5 +234,8 @@
     "version-5.0.1": "v5.0.1",
     "details-bug-fixes": "バグ修正",
     "version-5.0.0": "v5.0.0",
-    "details-new-edge": "新しいEdge"
+    "details-new-edge": "新しいEdge",
+    "runcmd": "Windowsは入力した名前に基づいて、対応するプログラム、フォルダ、ドキュメント、またはインターネットリソースを開きます。",
+    "agree": "同意して続行",
+    "disagree": "同意しない"
 }
