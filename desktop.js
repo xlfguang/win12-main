@@ -2411,13 +2411,16 @@ function opneLink(link, isCrossDomain = false) {
         window.open("https://twitter.com/FutureWeb3BC");
         break;
       case "Telegram":
-        window.open("https://web.telegram.org/");
+        window.open("https://t.me/FutureWeb3ETH");
         break;
       case "DextTools":
         window.open("https://dextools.io/");
         break;
       case "Sniffer":
         window.open("https://tokensniffer.com/");
+        break;
+      case "discord":
+        window.open("https://discord.com/app");
         break;
       default:
         break;
