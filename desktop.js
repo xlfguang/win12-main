@@ -2390,6 +2390,10 @@ function opneLink(link, isCrossDomain = false) {
         break;
       case "youtube":
         window.open("https://www.youtube.com/");
+        break;
+      case "binance":
+        window.open("https://www.binance.us/");
+        break;
       default:
         break;
     }
