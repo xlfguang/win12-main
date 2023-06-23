@@ -1683,36 +1683,35 @@ let widgets = {
 let da = new Date();
 let date = `${
   [
+    "Sunday",
+    "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
-    "Monday",
-  ][da.getDay()]
-}, ${da.getFullYear()}-${(da.getMonth() + 1).toString().padStart(2, "0")}-${da
-  .getDate()
+  ][da.getUTCDay()]
+}, ${da.getUTCFullYear()}-${(da.getUTCMonth() + 1)
   .toString()
-  .padStart(2, "0")}`;
+  .padStart(2, "0")}-${da.getUTCDate().toString().padStart(2, "0")}`;
 $("#s-m-r>.row1>.tool>.date").text(date);
 $(".dock.date>.date").text(
-  `${da.getFullYear()}/${(da.getMonth() + 1).toString().padStart(2, "0")}/${da
-    .getDate()
+  `${da.getUTCFullYear()}/${(da.getUTCMonth() + 1)
     .toString()
-    .padStart(2, "0")}`
+    .padStart(2, "0")}/${da.getUTCDate().toString().padStart(2, "0")}`
 );
 $("#datebox>.tit>.date").text(date);
 function loadtime() {
   let d = new Date();
-  let time = `${d.getHours().toString().padStart(2, "0")}:${d
-    .getMinutes()
+  let time = `${d.getUTCHours().toString().padStart(2, "0")}:${d
+    .getUTCMinutes()
     .toString()
-    .padStart(2, "0")}:${d.getSeconds().toString().padStart(2, "0")}`;
-  $("#s-m-r>.row1>.tool>.time").text(time);
-  $(".dock.date>.time").text(time);
-  $("#datebox>.tit>.time").text(time);
+    .padStart(2, "0")}:${d.getUTCSeconds().toString().padStart(2, "0")}`;
+  $("#s-m-r>.row1>.tool>.time").text(`${time} UTC`);
+  $(".dock.date>.time").text(`${time} `);
+  $("#datebox>.tit>.time").text(`${time} UTC`);
 }
+
 setInterval(loadtime, 1000);
 let d = new Date();
 let today = new Date().getDate();
