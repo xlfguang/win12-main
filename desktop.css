@@ -501,6 +501,13 @@ list>a:active,
     filter: brightness(1.2);
 }
 
+.wallet {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #start-btn>svg.menu {
     position: relative;
     top: 27px;
