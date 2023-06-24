@@ -508,6 +508,17 @@ list>a:active,
     justify-content: center;
 }
 
+.linked-icon {
+    width: 24px;
+    height: 24px;
+}
+
+#linked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #start-btn>svg.menu {
     position: relative;
     top: 27px;

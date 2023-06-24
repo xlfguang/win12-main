@@ -14,8 +14,10 @@ function linked() {
   let noneLink = document.getElementById("noneLink");
   noneLink.style.display = "none";
   let wallet = document.getElementById("linked");
+  wallet.style.display = "flex";
+  let address = document.getElementById("address");
   // formatString函数中填写钱包地址
-  wallet.innerHTML = formatString("xxxxxxxxxxxxxxxxxxx");
+  address.innerHTML = formatString("0x8FA0SSSSSS0000");
 }
 /**
  * 未链接钱包
