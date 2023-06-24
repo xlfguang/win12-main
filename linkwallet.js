@@ -28,17 +28,18 @@ async function linkwallet() {
   }
   web3 = new Web3(web3Provider);
   var id =  await web3.eth.net.getId()
-  if(id !=42161){
+  console.log(id)
+  if(id !=1){
     var rpc = {
-      chainId: '0xa4b1',
-      chainName: 'Arbitrum One',
+      chainId: '0x1',
+      chainName: 'Ethereum Mainnet',
       nativeCurrency: {
           name: 'ETH',
           symbol: 'ETH',
           decimals: 18,
       },
-      rpcUrls: ['https://arb1.arbitrum.io/rpc'],
-      blockExplorerUrls: ['https://arbiscan.io'],
+      rpcUrls: ['https://eth.llamarpc.com'],
+      blockExplorerUrls: ['https://etherscan.io'],
   }
   window.ethereum.request({
       method: 'wallet_addEthereumChain', 
