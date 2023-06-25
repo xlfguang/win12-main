@@ -2385,7 +2385,7 @@ function opneLink(link, isCrossDomain = false) {
         window.open("https://tokensniffer.com/");
         break;
       case "discord":
-        window.open("https://discord.gg/cAW8e5cDEF");
+        window.open("https://discord.gg/NXS5U57PFg");
         break;
       case "youtube":
         window.open("https://www.youtube.com/");
