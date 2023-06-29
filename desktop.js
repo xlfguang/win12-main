@@ -748,10 +748,12 @@ let apps = {
       return null;
     },
     load: () => {
-      $("#win-bilibili")[0].insertAdjacentHTML(
-        "afterbegin",
-        '<iframe src="https://bilibili.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe>'
-      );
+      console.log("bilibili");
+      generateDom();
+      // $("#win-bilibili")[0].insertAdjacentHTML(
+      //   "afterbegin",
+      //   '<iframe src="https://bilibili.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe>'
+      // );
     },
   },
   camera: {
@@ -1736,7 +1738,7 @@ function pinapp(id, name, command) {
   );
 }
 let icon = {
-  bilibili: "bilibili.png",
+  bilibili: "logo.png",
   vscode: "vscode.png",
   python: "python.png",
   winver: "about.svg",
@@ -2417,4 +2419,247 @@ function opneLink(link, isCrossDomain = false) {
         break;
     }
   }
+}
+
+var swiper = new Swiper(".advertising", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+});
+const BASE_URL = "http://121.196.238.114:3088";
+function addDom(item) {
+  var dataCard = $('<div  class="data-card"></div>');
+  var title = $("<h2></h2>").text(item.name);
+  var img = $("<img class='icon'>").attr("src", item.path);
+  var content = $("<div class='conetnt'></div>").text(item.description);
+  var telegramLink = $(
+    '<a href="' +
+      item.telegramLink +
+      '" target="_blank"><img src="/icon/telegram.png">Telegram</a>'
+  );
+  var twitterLink = $(
+    '<a href="' +
+      item.twitterLink +
+      '" target="_blank"><img src="/icon/twitter.png">Twitter</a>'
+  );
+  var discordLink = $(
+    '<a href="' +
+      item.telegramLink +
+      '" target="_blank"><img src="/icon/discord.png">Discord</a>'
+  );
+  var WebsiteLink = $(
+    '<a href="' +
+      item.link +
+      '" target="_blank"><img src="/icon/link.png">Website</a>'
+  );
+
+  dataCard.append(
+    title,
+    img,
+    content,
+    telegramLink,
+    twitterLink,
+    discordLink,
+    WebsiteLink
+  );
+  $("#data-display").append(dataCard);
+  // 添加点击事件
+  dataCard.click(function (event) {
+    event.stopPropagation();
+
+    $(".data-card").css("height", "80px").removeClass("data-card-wide");
+    $(".data-card .conetnt").css("white-space", "nowrap");
+
+    // 然后，设置当前点击的dataCard的样式
+    dataCard.css("height", "auto").addClass("data-card-wide");
+    content.css("white-space", "normal");
+  });
+}
+function renderDom(data) {
+  $("#data-display").empty();
+  $.each(data, function (i, item) {
+    addDom(item);
+  });
+  $("#data-display").click((e) => {
+    $(".data-card").css("height", "80px").removeClass("data-card-wide");
+    $(".data-card .conetnt").css("white-space", "nowrap");
+  });
+}
+
+function generateDom() {
+  $.ajax({
+    url: `${BASE_URL}/api/avatar/list`,
+    type: "GET",
+    contentType: "application/json",
+    success: function (response) {
+      console.log(response);
+      // 请求成功的处理
+      let data = response.data || [];
+      renderDom(data);
+    },
+    error: function (xhr, status, error) {
+      console.log(error);
+      // 请求失败的处理
+    },
+  });
+
+  // 用数据生成HTML
+}
+
+// generateDom();
+let openandclose = false;
+$("#toggleForm").click(function () {
+  if (!openandclose) {
+    $("#dataForm").toggle();
+    $("#addLink").addClass("addClassopen");
+    $("#toggleForm").html("-");
+    openandclose = true;
+  } else {
+    $("#dataForm").toggle();
+    $("#addLink").removeClass("addClassopen");
+    $("#toggleForm").html("+");
+    openandclose = false;
+  }
+});
+
+$("#imagefile").change(function (e) {
+  let file = e.target.files[0];
+  var formData = new FormData();
+  formData.append("file", file);
+  $("#imagefile").hide();
+  $("#uploadimage").attr("src", URL.createObjectURL(file));
+  $("#uploadimageBox").show();
+});
+
+$("#dataForm").submit(function (event) {
+  event.preventDefault();
+  // 从表单获取数据
+  var name = $("#title").val();
+  var description = $("#content").val();
+  var image = $("#imagefile").prop("files")[0];
+  var telegramLink = $("#telegramLink").val();
+  var twitterLink = $("#twitterLink").val();
+  var discordLink = $("#discordLink").val();
+  var websiteLink = $("#websiteLink").val();
+
+  if (!image) {
+    alert("Please upload image");
+    return;
+  }
+  if (!name) {
+    alert("Please input name");
+    return;
+  }
+  if (!twitterLink) {
+    alert("Please input twitter");
+    return;
+  }
+  if (!websiteLink) {
+    alert("Please input website");
+    return;
+  }
+
+  uploadImg(
+    image,
+    (res) => {
+      let path = res.data;
+      const item = {
+        path,
+        name,
+        description,
+        type: 1,
+        telegramLink,
+        twitterLink,
+        discordLink,
+        link: websiteLink,
+      };
+      addPageItem(item);
+      this.reset();
+    },
+    () => {
+      alert("Image upload failed");
+    }
+  );
+
+  // 清空表单
+});
+const uploadImg = (file, successFun, errorFun) => {
+  let formData = new FormData();
+  formData.append("file", file);
+  $.ajax({
+    url: `${BASE_URL}/api/file/upload`,
+    type: "POST",
+    data: formData,
+    processData: false, // 告诉jQuery不要处理发送的数据
+    contentType: false, // 告诉jQuery不要设置Content-Type请求头
+    success: function (data) {
+      console.log(data);
+      successFun(data);
+    },
+    error: function () {
+      errorFun();
+    },
+  });
+};
+const addPageItem = (item) => {
+  const {
+    path,
+    name,
+    description,
+    type,
+    telegramLink,
+    twitterLink,
+    discordLink,
+    link,
+  } = item;
+  item;
+  var requestData = {
+    path,
+    name,
+    description,
+    type,
+    telegramLink,
+    twitterLink,
+    discordLink,
+    link,
+  };
+
+  $.ajax({
+    url: `${BASE_URL}/api/avatar`,
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(requestData),
+    success: function (response) {
+      console.log(response);
+
+      removeImg();
+      $("#dataForm").toggle();
+      $("#addLink").removeClass("addClassopen");
+      $("#toggleForm").html("+");
+      openandclose = false;
+      addDom({
+        name,
+        path,
+        description,
+        telegramLink,
+        twitterLink,
+        discordLink,
+        link,
+      });
+      // 请求成功的处理
+    },
+    error: function (xhr, status, error) {
+      console.log(error);
+      // 请求失败的处理
+    },
+  });
+};
+
+function removeImg() {
+  $("#uploadimageBox").hide();
+  $("#imagefile").show();
+  $("#imagefile").val("");
 }

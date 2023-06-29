@@ -239,5 +239,8 @@
     "details-new-edge": "New Edge",
     "runcmd": "Windows will open the corresponding program, folder, document.",
     "agree": "Agree and continue",
-    "disagree": "Disagree"
+    "disagree": "Disagree",
+    "title": "Title",
+    "content": "Content",
+    "icon": "Icon"
 }

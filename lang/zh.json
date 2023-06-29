@@ -239,5 +239,8 @@
     "details-new-edge": "新增Edge",
     "runcmd": " Windows 将根据你所输入的名称，为你打开相应的程序、文件夹、文档或Internet 资源。",
     "agree": "同意并继续",
-    "disagree": "不同意"
+    "disagree": "不同意",
+    "title": "标题",
+    "content": "内容",
+    "icon": "图标"
 }

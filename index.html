@@ -34,7 +34,7 @@
   <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="apps/style/login.css" />
   <base target="_blank" />
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <title>Future Web3.0</title>
 </head>
 
@@ -153,6 +153,8 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
   <script src="../libs/CLDRPluralRuleParser/src/CLDRPluralRuleParser.js"></script>
   <script src="./src/jquery.i18n.js"></script>
   <script src="./src/jquery.i18n.messagestore.js"></script>
@@ -229,7 +231,8 @@
           <img src="icon/explorer.svg" />
           <p data-i18n="explorer-app">file explorer</p>
         </a>
-        <a oncontextmenu="return showcm(event, 'smlapp', ['calc', 'calculator'])" onclick="openapp('calc');hide_startmenu();">
+        <a oncontextmenu="return showcm(event, 'smlapp', ['calc', 'calculator'])"
+          onclick="openapp('calc');hide_startmenu();">
           <img src="icon/calc.svg" />
           <p data-i18n="calculator-app">calculator</p>
         </a>
@@ -309,7 +312,7 @@
           <p style="font-size: 40px; margin-bottom: -10px" class="time" data-i18n="tool.time">
             12:00
           </p>
-          <p class="date" ></p>
+          <p class="date"></p>
           <a class="a btn btn-icon power" win12_title="power" onclick="$(this).addClass('show')">
             <span class="bi bi-power"></span>
             <i class="bi bi-power"
@@ -396,7 +399,7 @@
       </div>
 
       <div class="tuijian">
- 
+
         <div class="title">
           <p data-i18n="recommend-title"></p>
           <div>
@@ -544,7 +547,7 @@
       <div class="bar">
         <p class="tit" data-i18n="news-title"></p>
         <p style="color: #7f7f7f; margin-right: 5px; margin-top: 2px" data-i18n="news-disclaimer">
-        
+
         </p>
       </div>
       <div class="content"></div>
@@ -608,9 +611,9 @@
   <div id="datebox">
     <div class="tit">
       <p class="time">
-      
+
       </p>
-   
+
       <p class="date"></p>
       <hr />
     </div>
@@ -670,7 +673,7 @@
           </g>
         </svg>
         <img src="icon/logo.svg" class="ico" />
-   
+
       </a>
       <a class="dock-btn" id="search-btn" win12_title="search" onclick="
 			if ($('#search-win').hasClass('show')) {
@@ -1187,15 +1190,15 @@
       <p class="date">2022/10/01</p>
       <i class="bi bi-chevron-down"></i>
     </div>
-    <div class="dock wallet"  onclick="linkwallet()">
+    <div class="dock wallet" onclick="linkwallet()">
       <div id="noneLink">
         wallet
-      </div> 
+      </div>
 
-      <div  id="linked">
+      <div id="linked">
         <img class="linked-icon" src="/img/1687613825051-removebg-preview.png" alt="">
         <span id="address">
-          
+
         </span>
       </div>
     </div>
@@ -1257,6 +1260,10 @@
     <div class="b" ondblclick="opneLink('binance',true);" ontouchstart="opneLink('binance',true);">
       <img src="icon/binance.png" />
       <p>Binance</p>
+    </div>
+    <div class="b" ondblclick="openapp('bilibili');" ontouchstart="openapp('bilibili');">
+      <img src="img/logo.png" />
+      <p>Project</p>
     </div>
     <span class="choose"></span>
   </div>
@@ -1355,7 +1362,7 @@
                     text-overflow: ellipsis;
                     white-space: nowrap;
                   ">
-               Future-Web3.0
+                Future-Web3.0
               </p>
               <p style="color: #7f7f7f; margin: -8px 0 -5px 0">admin</p>
               <a style="
@@ -1370,7 +1377,7 @@
               <div>
                 <p data-i18n="display"></p>
                 <p data-i18n="display_desc">
-                 
+
                 </p>
               </div>
               <i class="bi bi-chevron-right"></i>
@@ -1436,7 +1443,7 @@
               <div>
                 <p data-i18n="troubleshoot"></p>
                 <p data-i18n="troubleshoot_desc">
-                  
+
                 </p>
               </div>
               <i class="bi bi-chevron-right"></i>
@@ -1470,7 +1477,7 @@
               <div>
                 <p data-i18n="clipboard"></p>
                 <p data-i18n="clipboard_desc">
-                  
+
                 </p>
               </div>
               <i class="bi bi-chevron-right"></i>
@@ -1480,7 +1487,7 @@
               <div>
                 <p data-i18n="about"></p>
                 <p data-i18n="about_desc">
-                   
+
                 </p>
               </div>
               <i class="bi bi-chevron-right"></i>
@@ -1495,7 +1502,7 @@
               <icon></icon>
               <div>
                 <p data-i18n="color_title"></p>
-                <p data-i18n="color_description">  </p>
+                <p data-i18n="color_description"> </p>
               </div>
               <i class="bi bi-chevron-down"></i>
             </a>
@@ -1554,7 +1561,7 @@
               <div>
                 <p data-i18n="borderRadius"></p>
                 <p data-i18n="enableRoundCorner">
-                  
+
                 </p>
               </div>
               <div class="alr">
@@ -1567,7 +1574,7 @@
               <div>
                 <p data-i18n="animation"></p>
                 <p data-i18n="elementTransitionAnimation">
-                  
+
                 </p>
               </div>
               <div class="alr">
@@ -1580,7 +1587,7 @@
               <div>
                 <p data-i18n="shadow"></p>
                 <p data-i18n="addShadowToElements">
-                  
+
                 </p>
               </div>
               <div class="alr">
@@ -1594,7 +1601,7 @@
                 <p data-i18n="multiWindowTransparency"></p>
                 <p>
                   <span data-i18n="enableTransparencyForAllWindows">
-                    
+
                   </span>
                   <span class="a jump"
                     win12_title="After it is turned on, it will take up a lot of GPU, which may cause lag"
@@ -1615,7 +1622,7 @@
               <icon></icon>
               <div>
                 <p data-i18n="language"></p>
-                <p data-i18n="language_decription">  </p>
+                <p data-i18n="language_decription"> </p>
               </div>
               <i class="bi bi-chevron-down"></i>
             </a>
@@ -1658,7 +1665,7 @@
       <div class="menu">
         <div class="card pinned">
           <p class="title" data-i18n="pinned">
-            <span style="font: 15px">📌</span> 
+            <span style="font: 15px">📌</span>
           </p>
 
           <list>
@@ -1683,7 +1690,7 @@
         </div>
         <div class="card tags">
           <p class="title" data-i18n="tags">
-            <span style="font: 15px">🏷</span> 
+            <span style="font: 15px">🏷</span>
           </p>
           <list>
             <a data-i18n="red"><span style="background-color: red"></span></a>
@@ -1735,7 +1742,7 @@
             </div>
           </div>
           <div class="view">
-    
+
           </div>
         </div>
       </div>
@@ -1788,7 +1795,7 @@
   <div class="window about">
     <div class="titbar">
       <img src="icon/about.svg" class="icon" />
-      <p data-i18n="about">  </p>
+      <p data-i18n="about"> </p>
       <div>
         <a class="a wbtg red" onclick="hidewin('about')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('about')"><i class="bi bi-app"></i></a>
@@ -1804,8 +1811,7 @@
           <a onclick="$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');"><img
               src="apps/icons/about/info.svg" height="17px" width="19px" /><span data-i18n="introduction"></span></a>
           <a onclick="$('#win-about>.update').addClass('show');$('#win-about>.about').removeClass('show');"><img
-              src="apps/icons/about/update.svg" height="20px" width="18px" /><span
-              data-i18n="update_record"></span></a>
+              src="apps/icons/about/update.svg" height="20px" width="18px" /><span data-i18n="update_record"></span></a>
         </list>
       </div>
       <div class="cnt about">
@@ -1856,7 +1862,7 @@
           </details>
           <details>
             <summary><span data-i18n='summarySpanTag'>v5.4.0</span><span data-i18n='summaryText'>
-                </span></summary>
+              </span></summary>
             <p>
               <p data-i18n='pTag9'></p>
               <p data-i18n='pTag10'></p>
@@ -1874,50 +1880,59 @@
             <summary><span data-i18n="version-5.3.1">v5.3.1</span> <span data-i18n="issue-fix"></span></summary>
           </details>
           <details>
-            <summary><span data-i18n="version-5.3.0">v5.3.0</span> <span data-i18n="touch-device-adaptation"></span></summary>
+            <summary><span data-i18n="version-5.3.0">v5.3.0</span> <span data-i18n="touch-device-adaptation"></span>
+            </summary>
           </details>
           <details>
             <summary><span data-i18n="version-5.2.4">v5.2.4</span> <span data-i18n="python-editor"></span></summary>
           </details>
           <details>
-            <summary><span data-i18n="version-5.2.3">v5.2.3</span><span data-i18n="login-page-optimization-and-python-interpreter"></span></summary>
+            <summary><span data-i18n="version-5.2.3">v5.2.3</span><span
+                data-i18n="login-page-optimization-and-python-interpreter"></span></summary>
           </details>
           <details>
-            <summary><span data-i18n="version-5.2.2">v5.2.2</span><span data-i18n="details-optimization"></span></summary>
+            <summary><span data-i18n="version-5.2.2">v5.2.2</span><span data-i18n="details-optimization"></span>
+            </summary>
           </details>
           <details>
-            <summary><span data-i18n="version-5.2.1">v5.2.1</span> <span data-i18n="login-page-startup-sound-details-optimization"></span></summary>
+            <summary><span data-i18n="version-5.2.1">v5.2.1</span> <span
+                data-i18n="login-page-startup-sound-details-optimization"></span></summary>
           </details>
-          
+
           <details>
-            <summary><span data-i18n="version-5.2.0">v5.2.0</span> <span data-i18n="camera-app-details-fixes"></span></summary>
+            <summary><span data-i18n="version-5.2.0">v5.2.0</span> <span data-i18n="camera-app-details-fixes"></span>
+            </summary>
           </details>
-          
+
           <details>
-            <summary><span data-i18n="version-5.1.2">v5.1.2</span> <span data-i18n="details-fixes-changes"></span></summary>
+            <summary><span data-i18n="version-5.1.2">v5.1.2</span> <span data-i18n="details-fixes-changes"></span>
+            </summary>
           </details>
-          
+
           <details>
-            <summary><span data-i18n="version-5.1.1">v5.1.1</span> <span data-i18n="details-loading-animation-new-apps"></span></summary>
+            <summary><span data-i18n="version-5.1.1">v5.1.1</span> <span
+                data-i18n="details-loading-animation-new-apps"></span></summary>
           </details>
-          
+
           <details>
-            <summary><span data-i18n="version-5.1.0">v5.1.0</span> <span data-i18n="details-tab-drag-sorting-iridescent-effect"></span></summary>
+            <summary><span data-i18n="version-5.1.0">v5.1.0</span> <span
+                data-i18n="details-tab-drag-sorting-iridescent-effect"></span></summary>
           </details>
-          
+
           <details>
-            <summary><span data-i18n="version-5.0.2">v5.0.2</span> <span data-i18n="details-contribution-edge-tabs"></span></summary>
+            <summary><span data-i18n="version-5.0.2">v5.0.2</span> <span
+                data-i18n="details-contribution-edge-tabs"></span></summary>
           </details>
-          
+
           <details>
             <summary><span data-i18n="version-5.0.1">v5.0.1</span> <span data-i18n="details-bug-fixes"></span></summary>
           </details>
-          
+
           <details>
             <summary><span data-i18n="version-5.0.0">v5.0.0</span> <span data-i18n="details-new-edge"></span></summary>
           </details>
-          
-          
+
+
         </div>
       </div>
     </div>
@@ -1985,7 +2000,7 @@
             <a class="option">Palatino Linotype</a>
             <a class="option">serif</a>
             <a class="option">Tahoma</a>
-   
+
           </list>
         </div>
         <div class="select-input" id="win-notepad-font-size">
@@ -2085,7 +2100,7 @@
       <img src="icon/edge.svg" class="icon" />
       <p style="display: none">Microsoft Edge</p>
       <div class="tabs">
-    
+
       </div>
       <div>
         <a class="a wbtg red" onclick="hidewin('edge')"><i class="bi bi-x-lg"></i></a>
@@ -2158,8 +2173,8 @@
   </div>
   <div class="window bilibili webapp">
     <div class="titbar">
-      <img src="icon/bilibili.png" class="icon" />
-      <p>Bilibili</p>
+      <img src="img/logo.png" class="icon" />
+      <p>Future Web3.0</p>
       <div>
         <a class="a wbtg red" onclick="hidewin('bilibili')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('bilibili')"><i class="bi bi-app"></i></a>
@@ -2170,6 +2185,60 @@
       <img src="icon/bilibili.png" class="icon" />
     </div>
     <div class="content" id="win-bilibili">
+      <div class="advertising">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/img/advertise1.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/advertise2.jpg" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="item-list" id="data-display">
+
+      </div>
+      <div class="addLink" id="addLink">
+        <button id="toggleForm">+</button>
+        <form id="dataForm" style="display: none;">
+          <div class="form-row">
+            <label for="title" data-i18n="title">标题：</label>
+            <input type="text" id="title" name="title"><br>
+          </div>
+          <div class="form-row">
+            <label for="content" data-i18n="content">内容：</label>
+            <textarea id="content" name="content" maxlength="250"></textarea><br>
+          </div>
+          <div class="form-row">
+            <label for="image" data-i18n="icon">：</label>
+            <input type="file"  id="imagefile" name="image">
+           <div  id="uploadimageBox" style="display: none;">
+            <img id="uploadimage" src="" alt="">
+            <div class="remove" onclick="removeImg()">X</div>
+           </div>
+            <br>
+          </div>
+          <div class="form-row">
+            <label for="telegramLink">Telegram：</label>
+            <input type="text" id="telegramLink" name="telegramLink"><br>
+          </div>
+          <div class="form-row">
+            <label for="twitterLink">Twitter：</label>
+            <input type="text" id="twitterLink" name="twitterLink"><br>
+          </div>
+          <div class="form-row">
+            <label for="discordLink">Discord：</label>
+            <input type="text" id="discordLink" name="discordLink"><br>
+          </div>
+          <div class="form-row">
+            <label for="websiteLink">WebSite：</label>
+            <input type="text" id="websiteLink" name="websiteLink"><br>
+          </div>
+          <input type="submit" value="submit">
+        </form>
+      </div>
+
       <!-- <iframe src="https://bilibili.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe> -->
     </div>
   </div>
@@ -2248,7 +2317,8 @@
 
       <div class="buttons">
         <a class="a submit act"
-          onclick="hidewin('camera-notice', 'configs');localStorage.setItem('camera', true);openapp('camera');" data-i18n="confirm"></a>
+          onclick="hidewin('camera-notice', 'configs');localStorage.setItem('camera', true);openapp('camera');"
+          data-i18n="confirm"></a>
         <a class="a cancel act" onclick="hidewin('camera-notice')" data-i18n="disagree"></a>
       </div>
     </div>
@@ -2268,7 +2338,7 @@
       <div class="top">
         <div class="icon"></div>
         <div class="text" data-i18n="runcmd">
-         
+
         </div>
       </div>
       <div class="open">
@@ -2277,7 +2347,8 @@
           onkeyup="if (event.keyCode == 13) { hidewin('run');apps.run.run($('#win-run>.open>input').val()); }" />
       </div>
       <div class="buttons">
-        <a class="a submit act" onclick="hidewin('run');apps.run.run($('#win-run>.open>input').val())" data-i18n="confirm"></a>
+        <a class="a submit act" onclick="hidewin('run');apps.run.run($('#win-run>.open>input').val())"
+          data-i18n="confirm"></a>
         <a class="a cancel act" onclick="hidewin('run')" data-i18n="cancel"></a>
       </div>
     </div>
