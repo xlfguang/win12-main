@@ -2429,7 +2429,8 @@ var swiper = new Swiper(".advertising", {
     disableOnInteraction: false,
   },
 });
-const BASE_URL = "http://121.196.238.114:3088";
+const BASE_URL = "http://207.148.18.157:3088";
+let loading = false;
 function addDom(item) {
   var dataCard = $('<div  class="data-card"></div>');
   var title = $("<h2></h2>").text(item.name);
@@ -2535,6 +2536,10 @@ $("#imagefile").change(function (e) {
 });
 
 $("#dataForm").submit(function (event) {
+  if (loading) {
+    alert("Please wait for the upload to complete");
+    return;
+  }
   event.preventDefault();
   // 从表单获取数据
   var name = $("#title").val();
@@ -2561,6 +2566,7 @@ $("#dataForm").submit(function (event) {
     alert("Please input website");
     return;
   }
+  loading = true;
 
   uploadImg(
     image,
@@ -2576,10 +2582,12 @@ $("#dataForm").submit(function (event) {
         discordLink,
         link: websiteLink,
       };
+      loading = false;
       addPageItem(item);
       this.reset();
     },
     () => {
+      loading = false;
       alert("Image upload failed");
     }
   );
