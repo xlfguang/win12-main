@@ -2215,8 +2215,10 @@
             <textarea id="content" name="content" maxlength="250"></textarea><br>
           </div>
           <div class="form-row">
+           
             <label for="image" data-i18n="icon">：</label>
-            <input type="file"  id="imagefile" name="image">
+            <div id="uploadbtn" class="uploadbtn">Upload Image</div>
+            <input style="display: none;" type="file"  id="imagefile" name="image" accept="image/*">
            <div  id="uploadimageBox" style="display: none;">
             <img id="uploadimage" src="" alt="">
             <div class="remove" onclick="removeImg()">X</div>

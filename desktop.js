@@ -2529,11 +2529,14 @@ $("#toggleForm").click(function () {
   }
 });
 
+$("#uploadbtn").click(function () {
+  $("#imagefile").trigger("click");
+});
 $("#imagefile").change(function (e) {
   let file = e.target.files[0];
   var formData = new FormData();
   formData.append("file", file);
-  $("#imagefile").hide();
+  $("#uploadbtn").hide();
   $("#uploadimage").attr("src", URL.createObjectURL(file));
   $("#uploadimageBox").show();
 });
@@ -2671,6 +2674,6 @@ const addPageItem = (item) => {
 
 function removeImg() {
   $("#uploadimageBox").hide();
-  $("#imagefile").show();
+  $("#uploadbtn").show();
   $("#imagefile").val("");
 }
