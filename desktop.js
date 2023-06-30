@@ -2269,7 +2269,7 @@ page.addEventListener("touchend", () => {
 });
 
 // 启动
-let updated = false;
+// let updated = false;
 document.getElementsByTagName("body")[0].onload = function nupd() {
   // $('#loginback').css('opacity', '1');
   // $('#loginback').css('display', 'flex');
@@ -2279,11 +2279,7 @@ document.getElementsByTagName("body")[0].onload = function nupd() {
   setTimeout(() => {
     $("#loadback").css("display", "none");
   }, 1000);
-  if (updated) {
-    setTimeout(() => {
-      $(".msg.update").addClass("show");
-    }, 1000);
-  }
+
   apps.webapps.init();
   //getdata
   if (localStorage.getItem("theme") == "dark") $(":root").addClass("dark");
@@ -2291,18 +2287,7 @@ document.getElementsByTagName("body")[0].onload = function nupd() {
     $(":root").css("--theme-1", localStorage.getItem("color1"));
     $(":root").css("--theme-2", localStorage.getItem("color2"));
   }
-  // 所以这个东西为啥要在开机的时候加载？
-  // 不应该在python.init里面吗？
-  //     (async function () {
-  //         apps.python.pyodide = await loadPyodide();
-  //         apps.python.pyodide.runPython(`
-  // import sys
-  // import io
-  // `);
-  //     })();
-  // apps.pythonEditor.load();
-  // apps.notepadFonts.load();
-  // apps.whiteboard.load();
+
   document.querySelectorAll(".window").forEach((w) => {
     let qw = $(w),
       wc = w.classList[1];
@@ -2324,53 +2309,17 @@ document.getElementsByTagName("body")[0].onload = function nupd() {
   });
 };
 
-// PWA 应用
-if (
-  !location.href.match(
-    /((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])(?::(?:[0-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))/
-  ) &&
-  !location.href.match("localhost") &&
-  !new URL(location.href).searchParams.get("develop")
-) {
-  navigator.serviceWorker.register("sw.js", {
-    updateViaCache: "none",
-    scope: "./",
-  });
-  navigator.serviceWorker.controller.postMessage({
-    head: "is_update",
-  });
-  // navigator.serviceWorker.controller.postMessage({
-  //     head: 'get_userdata'
-  // });
-  navigator.serviceWorker.addEventListener("message", function (e) {
-    if (e.data.head == "update") {
-      updated = true;
-      $(".msg.update>.main>.tit").html(
-        '<i class="bi bi-stars" style="background-image: linear-gradient(100deg, var(--theme-1), var(--theme-2));-webkit-background-clip: text;-webkit-text-fill-color: transparent;text-shadow:3px 3px 5px var(--sd);filter:saturate(200%) brightness(0.9);"></i> ' +
-          $("#win-about>.cnt.update>div>details:first-child>summary").text()
-      );
-      $(".msg.update>.main>.cont").html(
-        $("#win-about>.cnt.update>div>details:first-child>p").html()
-      );
-      $("#loadbackupdate").css("display", "block");
-    }
-    //  else if (e.data.head == 'userdata') {
-    //     const d = e.data.data;
-    //     console.log(d);
-    //     if (d.theme == 'dark') $(':root').addClass('dark');
-    //     $(':root').css('--theme-1', d.color1);
-    //     $(':root').css('--theme-2', d.color2);
-    // }
-  });
-  function setData(k, v) {
-    // navigator.serviceWorker.controller.postMessage({
-    //     head: 'set_userdata',
-    //     key: k,
-    //     value: v
-    // });
-    localStorage.setItem(k, v);
-  }
-}
+// navigator.serviceWorker.register("sw.js", {
+//   updateViaCache: "none",
+//   scope: "./",
+// });
+// navigator.serviceWorker.controller.postMessage({
+//   head: "is_update",
+// });
+// navigator.serviceWorker.controller.postMessage({
+//     head: 'get_userdata'
+// });
+
 function opneLink(link, isCrossDomain = false) {
   if (isCrossDomain) {
     switch (link) {
