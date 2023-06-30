@@ -2395,6 +2395,9 @@ function opneLink(link, isCrossDomain = false) {
       case "binance":
         window.open("https://www.binance.us/");
         break;
+      case "whiteboard":
+        window.open("https://whitepaper.fweb3.org/");
+        break;
       default:
         break;
     }
