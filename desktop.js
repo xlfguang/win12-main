@@ -2347,6 +2347,9 @@ function opneLink(link, isCrossDomain = false) {
       case "whiteboard":
         window.open("https://whitepaper.fweb3.org/");
         break;
+      case "SWFT":
+        window.open("http://swft.pro/");
+        break;
       default:
         break;
     }
