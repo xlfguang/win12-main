@@ -2364,7 +2364,9 @@ function opneLink(link, isCrossDomain = false) {
         apps.edge.goto("https://tokentool.app/");
         break;
       case "pinkswap":
-        apps.edge.goto("https://www.pinksale.finance/launchpads?chain=ETH");
+        apps.edge.goto(
+          "https://www.pinksale.finance/launchpad/0x1f6679D1f42A1123007173C7099b3Dd37c900074?chain=ETH"
+        );
         break;
       case "uniswap":
         apps.edge.goto("https://app.uniswap.org/#/swap?lng=en-US");
