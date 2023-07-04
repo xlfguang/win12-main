@@ -2350,6 +2350,9 @@ function opneLink(link, isCrossDomain = false) {
       case "SWFT":
         window.open("http://swft.pro/");
         break;
+      case "OpenSea":
+        window.open("https://opensea.io/");
+        break;
       default:
         break;
     }
