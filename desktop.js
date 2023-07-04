@@ -2386,7 +2386,7 @@ var swiper = new Swiper(".advertising", {
     disableOnInteraction: false,
   },
 });
-const BASE_URL = "https://207.148.18.157:3088";
+const BASE_URL = "https://fweb3.online/";
 let loading = false;
 function addDom(item) {
   var dataCard = $('<div  class="data-card"></div>');
