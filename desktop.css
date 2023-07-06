@@ -2697,3 +2697,7 @@ button:hover {
     transform: translate(-50%, -50%);
     color: #000;
 }
+
+.maxwvscode {
+    max-width: 800px;
+}
