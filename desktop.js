@@ -736,12 +736,7 @@ let apps = {
     init: () => {
       return null;
     },
-    load: () => {
-      $("#win-vscode")[0].insertAdjacentHTML(
-        "afterbegin",
-        '<iframe src="https://github1s.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe>'
-      );
-    },
+    load: () => {},
   },
   bilibili: {
     init: () => {

@@ -2622,3 +2622,77 @@ body {
 
 
 }
+
+body {
+    font-family: Segoe UI, Arial, sans-serif;
+}
+
+.airdrop-box {
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    text-align: center;
+    margin: auto;
+}
+
+.airdrop-copywriter {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.airdrop-img-box {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.airdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0078D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005A9E;
+}
+
+.progress-bar-box {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #0078D7;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.progress-bar-box>.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #0078D7;
+    width: 0%;
+    /* 更新这个百分比以反映进度 */
+}
+
+.progress-bar-box>div:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}

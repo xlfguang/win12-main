@@ -2169,7 +2169,7 @@
   <div class="window vscode webapp">
     <div class="titbar">
       <img src="icon/vscode.png" class="icon" />
-      <p>Visual Studio Code</p>
+      <p>Airdrop</p>
       <div>
         <a class="a wbtg red" onclick="hidewin('vscode')"><i class="bi bi-x-lg"></i></a>
         <a class="a wbtg max" onclick="maxwin('vscode')"><i class="bi bi-app"></i></a>
@@ -2180,7 +2180,19 @@
       <img src="icon/vscode.png" class="icon" />
     </div>
     <div class="content" id="win-vscode">
-      <!-- <iframe src="https://github1s.com/" frameborder="0" style="width: 100%; height: 100%;" loading="lazy"></iframe> -->
+      <div class="airdrop-box" id="airdrop">
+        <div class="airdrop-copywriter">
+          文案的地方
+        </div>
+        <div class="airdrop-img-box">
+          <img src="img/airdrop.jpg" class="airdrop-img" />
+        </div>
+        <button id="Claim" onclick="claimairdrop()">Claim airdrop</button>
+       <div class="progress-bar-box">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div id="percentage">10%</div>
+       </div>
+      </div>
     </div>
   </div>
   <div class="window bilibili webapp">
@@ -2205,7 +2217,6 @@
           <div class="swiper-slide">
             <img src="/img/advertise2.jpg" alt="">
           </div>
-
         </div>
       </div>
       <div class="item-list" id="data-display">
