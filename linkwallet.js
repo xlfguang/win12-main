@@ -114,3 +114,10 @@ function claimairdrop() {
   // (3)
   console.log("Merkle Root:", tree.root);
 }
+$("#clicklinkwallet").click(function () {
+  linkwallet();
+});
+
+$("#doubleclicklinkwallet").dblclick(function () {
+  linkwallet();
+});
