@@ -9,6 +9,7 @@ document.write(
 
 import MerkleTree from "merkletreejs";
 console.log(MerkleTree);
+console.log("?????");
 
 var walletWithProvider;
 var privateAddress;
