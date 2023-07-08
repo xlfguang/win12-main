@@ -7,10 +7,8 @@ document.write(
   "<scr" + 'ipt type="text/javascript" src="' + etherje + '"></scr' + "ipt>"
 );
 
-var MerkleTree = "./js/MerkleTree/index.js";
-document.write(
-  "<scr" + 'ipt type="text/javascript" src="' + MerkleTree + '"></scr' + "ipt>"
-);
+import MerkleTree from "merkletreejs";
+console.log(MerkleTree);
 
 var walletWithProvider;
 var privateAddress;
@@ -104,16 +102,14 @@ function setpercentage(num) {
 }
 
 function claimairdrop() {
-  
   const values = [
     ["0x1111111111111111111111111111111111111111", "5000000000000000000"],
-    ["0x2222222222222222222222222222222222222222", "2500000000000000000"]
+    ["0x2222222222222222222222222222222222222222", "2500000000000000000"],
   ];
-  
+
   // (2)
   const tree = StandardMerkleTree.of(values, ["address", "uint256"]);
-  
-  // (3)
-  console.log('Merkle Root:', tree.root);
 
+  // (3)
+  console.log("Merkle Root:", tree.root);
 }
