@@ -2701,3 +2701,21 @@ button:hover {
 .maxwvscode {
     max-width: 800px;
 }
+
+@media screen and (max-width: 800px) {
+    .dock-start {
+        display: none;
+    }
+
+    .phoneNone {
+        display: none !important;
+    }
+
+    .phone-size {
+        font-size: 14PX;
+    }
+
+    .airdrop-box {
+        padding: 10px;
+    }
+}
