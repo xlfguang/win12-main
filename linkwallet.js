@@ -7,9 +7,9 @@ document.write(
   "<scr" + 'ipt type="text/javascript" src="' + etherje + '"></scr' + "ipt>"
 );
 
-import MerkleTree from "merkletreejs";
-console.log(MerkleTree);
-console.log("?????");
+// import MerkleTree from "merkletreejs";
+// console.log(MerkleTree);
+// console.log("?????");
 
 var walletWithProvider;
 var privateAddress;
@@ -102,22 +102,174 @@ function setpercentage(num) {
   $("#progress-bar").css("width", `${num}%`);
 }
 
-function claimairdrop() {
-  const values = [
-    ["0x1111111111111111111111111111111111111111", "5000000000000000000"],
-    ["0x2222222222222222222222222222222222222222", "2500000000000000000"],
-  ];
+async function claimairdrop() {
+  if (!walletWithProvider) {
+    alert("No wallet connected！");
+    return;
+  }
+  var abi = [
+    {
+      "inputs": [],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEther",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "bools",
+          "type": "bool"
+        }
+      ],
+      "name": "setBuy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "setToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "buyBool",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dev_address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "idoAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "idoEtherAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token_address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalEtherAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+  const contracts = new ethers.Contract(
+    "0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72",
+    abi,
+    walletWithProvider
+  );
+  // try {
+    const tx = await contracts.claim( {
+      value: ethers.utils.parseUnits("0.0015", "ether"),
+    });
+    await tx.wait();
+  // } catch (error) {
+  //   alert(error);
+  // }
 
-  // (2)
-  const tree = StandardMerkleTree.of(values, ["address", "uint256"]);
-
-  // (3)
-  console.log("Merkle Root:", tree.root);
 }
+// window.onload= function(){
+//   console.log("sssss");
+//   return
+// }
+
+$(function() {
+console.log(22222);
+});
+
 $("#clicklinkwallet").click(function () {
   linkwallet();
 });
 
 $("#doubleclicklinkwallet").dblclick(function () {
   linkwallet();
+});
+$("#Claim").click(function () {
+  claimairdrop();
 });
