@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build":"webpack build"
   },
   "dependencies": {
     "buffer": "^6.0.3",
