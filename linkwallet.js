@@ -259,8 +259,160 @@ async function claimairdrop() {
 //   return
 // }
 
-$(function() {
-console.log(22222);
+
+
+$(window).on('load', async function() {
+ const currentProvider = new Web3.providers.HttpProvider(
+    "https://eth.llamarpc.com"
+  );
+  const web3Provider = new ethers.providers.Web3Provider(currentProvider);
+  var abi = [
+    {
+      "inputs": [],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEther",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "bools",
+          "type": "bool"
+        }
+      ],
+      "name": "setBuy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "setToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "buyBool",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dev_address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "idoAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "idoEtherAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token_address",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalEtherAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+  const contracts = new ethers.Contract(
+    "0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72",
+    abi,
+    web3Provider
+  );
+  // try {
+   var amount = await contracts.totalEtherAmount();
+    // amount = ethers.utils.parseUnits("0.0015", "ether")
+    var newAmount = (
+      amount.div(ethers.utils.parseUnits("0.00001", "ether")).toNumber() /
+      100000
+    ).toFixed(5);
+    const seli = (newAmount * 100) / 30;
+    console.log(22211);
+    setpercentage(seli.toFixed(5));
 });
 
 $("#clicklinkwallet").click(function () {
