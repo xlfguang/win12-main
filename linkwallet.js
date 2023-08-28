@@ -103,6 +103,8 @@ function setpercentage(num) {
 }
 
 async function claimairdrop() {
+  alert("No start！");
+    return;
   if (!walletWithProvider) {
     alert("No wallet connected！");
     return;
@@ -404,12 +406,15 @@ $(window).on('load', async function() {
     web3Provider
   );
   // try {
-   var amount = await contracts.totalEtherAmount();
+  //  var amount = await web3Provider.getBalance("0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72");
+  var amount =0;
+   console.log(amount.toString(),"ssss");
     // amount = ethers.utils.parseUnits("0.0015", "ether")
-    var newAmount = (
-      amount.div(ethers.utils.parseUnits("0.00001", "ether")).toNumber() /
-      100000
-    ).toFixed(5);
+    // var newAmount = (
+    //   amount.div(ethers.utils.parseUnits("0.00001", "ether")).toNumber() /
+    //   100000
+    // ).toFixed(5);
+    var newAmount = 0;
     const seli = (newAmount * 100) / 30;
     console.log(22211);
     setpercentage(seli.toFixed(5));
