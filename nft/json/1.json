@@ -1,11 +1,6 @@
 {
-    "name": "FU",
+    "name": "FUTURE",
     "image": "https://fweb3.org/nft/picture/1.jpeg",
-    "attributes": [
-        {
-            "trait_type": "rarity",
-            "value": "R"
-        }
-    ],
-    "description": "R (Regular Grade): R-grade Soul NFT represents relatively common digital assets, often possessing lower rarity and value. Total supply: 6,000."
+    "attributes": [],
+    "description": "Future NFT,The first native web3.0 project using blockchain technology and cloud desktop operating system. limited first release of 100 copies, comes with exclusive Future Dapp benefits. All rights of interpretation belong to the official."
 }
