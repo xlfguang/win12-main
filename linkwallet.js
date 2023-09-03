@@ -103,8 +103,7 @@ function setpercentage(num) {
 }
 
 async function claimairdrop() {
-  alert("No start！");
-    return;
+
   if (!walletWithProvider) {
     alert("No wallet connected！");
     return;
@@ -112,47 +111,38 @@ async function claimairdrop() {
   var abi = [
     {
       "inputs": [],
-      "name": "claim",
+      "name": "idoHandle",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "getEther",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getToken",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMaxAmount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "adrs",
+          "type": "address[]"
+        },
         {
           "internalType": "bool",
           "name": "bools",
           "type": "bool"
         }
       ],
-      "name": "setBuy",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "token",
-          "type": "address"
-        }
-      ],
-      "name": "setToken",
+      "name": "setWhiteList",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -164,20 +154,7 @@ async function claimairdrop() {
     },
     {
       "inputs": [],
-      "name": "buyBool",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "dev_address",
+      "name": "adminAddress",
       "outputs": [
         {
           "internalType": "address",
@@ -190,12 +167,12 @@ async function claimairdrop() {
     },
     {
       "inputs": [],
-      "name": "idoAmount",
+      "name": "devAddress",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address",
           "name": "",
-          "type": "uint256"
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -215,8 +192,40 @@ async function claimairdrop() {
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isBuy",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
-      "name": "token_address",
+      "name": "maxAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nftAddress",
       "outputs": [
         {
           "internalType": "address",
@@ -229,7 +238,7 @@ async function claimairdrop() {
     },
     {
       "inputs": [],
-      "name": "totalEtherAmount",
+      "name": "totalAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -239,21 +248,40 @@ async function claimairdrop() {
       ],
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whiteList",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ]
   const contracts = new ethers.Contract(
-    "0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72",
+    "0x1633EbD6da8AA21e624921E0e52d5D8d4dD8e60C",
     abi,
     walletWithProvider
   );
-  // try {
-    const tx = await contracts.claim( {
-      value: ethers.utils.parseUnits("0.0015", "ether"),
+  try {
+    const tx = await contracts.idoHandle( {
+      value: ethers.utils.parseUnits("0.05", "ether"),
     });
     await tx.wait();
-  // } catch (error) {
-  //   alert(error);
-  // }
+  } catch (error) {
+    alert("mint error");
+  }
 
 }
 // window.onload= function(){
@@ -271,47 +299,38 @@ $(window).on('load', async function() {
   var abi = [
     {
       "inputs": [],
-      "name": "claim",
+      "name": "idoHandle",
       "outputs": [],
       "stateMutability": "payable",
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "getEther",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getToken",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMaxAmount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "adrs",
+          "type": "address[]"
+        },
         {
           "internalType": "bool",
           "name": "bools",
           "type": "bool"
         }
       ],
-      "name": "setBuy",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "token",
-          "type": "address"
-        }
-      ],
-      "name": "setToken",
+      "name": "setWhiteList",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -323,20 +342,7 @@ $(window).on('load', async function() {
     },
     {
       "inputs": [],
-      "name": "buyBool",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "dev_address",
+      "name": "adminAddress",
       "outputs": [
         {
           "internalType": "address",
@@ -349,12 +355,12 @@ $(window).on('load', async function() {
     },
     {
       "inputs": [],
-      "name": "idoAmount",
+      "name": "devAddress",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address",
           "name": "",
-          "type": "uint256"
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -374,8 +380,40 @@ $(window).on('load', async function() {
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isBuy",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
-      "name": "token_address",
+      "name": "maxAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nftAddress",
       "outputs": [
         {
           "internalType": "address",
@@ -388,7 +426,7 @@ $(window).on('load', async function() {
     },
     {
       "inputs": [],
-      "name": "totalEtherAmount",
+      "name": "totalAmount",
       "outputs": [
         {
           "internalType": "uint256",
@@ -398,24 +436,47 @@ $(window).on('load', async function() {
       ],
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whiteList",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ]
   const contracts = new ethers.Contract(
-    "0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72",
+    "0x1633EbD6da8AA21e624921E0e52d5D8d4dD8e60C",
     abi,
     web3Provider
   );
-  // try {
-  //  var amount = await web3Provider.getBalance("0x2E59191a11Dc1c4b7a32d625D946FB35d267FA72");
-  var amount =0;
-   console.log(amount.toString(),"ssss");
-    // amount = ethers.utils.parseUnits("0.0015", "ether")
-    // var newAmount = (
-    //   amount.div(ethers.utils.parseUnits("0.00001", "ether")).toNumber() /
-    //   100000
-    // ).toFixed(5);
-    var newAmount = 0;
-    const seli = (newAmount * 100) / 30;
+    try {
+      var amount = await contracts.totalAmount();
+    
+     // amount = ethers.utils.parseUnits("1", "ether");
+    //  console.log(amount.toString(),"ssss");
+    } catch (error) {
+     // alert(error);
+    }
+   
+    var newAmount = (
+      amount.div(ethers.utils.parseUnits("0.00001", "ether")).toNumber() /
+      100000
+    ).toFixed(5);
+    // var newAmount = 0;
+    const seli = (newAmount * 100) / 5;
     console.log(22211);
     setpercentage(seli.toFixed(5));
 });
