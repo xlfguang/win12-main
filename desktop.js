@@ -2325,7 +2325,9 @@ function opneLink(link, isCrossDomain = false) {
         window.open("https://t.me/FutureWeb3ETH");
         break;
       case "DextTools":
-        window.open("https://dextools.io/");
+        window.open(
+          "https://www.dextools.io/app/cn/ether/pair-explorer/0x3dbbae3ba59df6f2d35ea485102d21a9d9c32cb3"
+        );
         break;
       case "Sniffer":
         window.open("https://tokensniffer.com/");
@@ -2347,6 +2349,10 @@ function opneLink(link, isCrossDomain = false) {
         break;
       case "OpenSea":
         window.open("https://opensea.io/");
+      case "ave":
+        window.open(
+          "https://ave.ai/token/0x8f0f1676b831b406ec19bd39694ccba7596a036a-eth?from=Token "
+        );
         break;
       default:
         break;
