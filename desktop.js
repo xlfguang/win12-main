@@ -2319,10 +2319,10 @@ function opneLink(link, isCrossDomain = false) {
   if (isCrossDomain) {
     switch (link) {
       case "Twitter":
-        window.open("https://twitter.com/FutureWeb3BC");
+        window.open("https://x.com/SBOS_DAPP");
         break;
       case "Telegram":
-        window.open("https://t.me/FutureWeb3ETH");
+        window.open("https://t.me/SBOS_SOLANA");
         break;
       case "DextTools":
         window.open(
@@ -2415,7 +2415,7 @@ function addDom(item) {
   var twitterLink = $(
     '<a href="' +
       item.twitterLink +
-      '" target="_blank"><img src="/icon/twitter.png">Twitter</a>'
+      '" target="_blank"><img src="/icon/xlogo.jpg">Twitter</a>'
   );
   var discordLink = $(
     '<a href="' +
