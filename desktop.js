@@ -119,7 +119,7 @@ let cms = {
     ['<i class="bi bi-circle-square"></i> switch theme', "toggletheme()"],
 
     [
-      '<i class="bi bi-info-circle"></i> About Future Web3.0',
+      '<i class="bi bi-info-circle"></i> About Solana Web3.0',
       `$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');openapp('about');if($('.window.about').hasClass('min'))minwin('about');`,
     ],
   ],
@@ -2333,7 +2333,7 @@ function opneLink(link, isCrossDomain = false) {
         window.open("https://tokensniffer.com/");
         break;
       case "discord":
-        window.open("https://discord.gg/futureweb3");
+        window.open("https://discord.com/");
         break;
       case "youtube":
         window.open("https://www.youtube.com/");
@@ -2341,9 +2341,9 @@ function opneLink(link, isCrossDomain = false) {
       case "binance":
         window.open("https://www.binance.us/");
         break;
-      case "whiteboard":
-        window.open("https://whitepaper.fweb3.org/");
-        break;
+      // case "whiteboard":
+      //   window.open("https://whitepaper.fweb3.org/");
+      //   break;
       case "SWFT":
         window.open("http://swft.pro/");
         break;
@@ -2354,6 +2354,16 @@ function opneLink(link, isCrossDomain = false) {
           "https://ave.ai/token/0x8f0f1676b831b406ec19bd39694ccba7596a036a-eth?from=Token "
         );
         break;
+      case "dexscreener":
+        window.open("https://dexscreener.com/");
+        break;
+      case "phantom":
+        window.open("https://phantom.app/");
+        break;
+      case "raydium":
+        window.open("https://raydium.io/");
+        break;
+
       default:
         break;
     }
