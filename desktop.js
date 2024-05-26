@@ -119,7 +119,7 @@ let cms = {
     ['<i class="bi bi-circle-square"></i> switch theme', "toggletheme()"],
 
     [
-      '<i class="bi bi-info-circle"></i> About Solana Web3.0',
+      '<i class="bi bi-info-circle"></i> About System CAT',
       `$('#win-about>.about').addClass('show');$('#win-about>.update').removeClass('show');openapp('about');if($('.window.about').hasClass('min'))minwin('about');`,
     ],
   ],
